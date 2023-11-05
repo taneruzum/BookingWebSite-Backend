@@ -1,0 +1,9 @@
+﻿using System.Reflection;
+
+namespace ReminderApp.Api
+{
+    public class AssemblyReference
+    {
+        public static readonly Assembly Assembly = typeof(AssemblyReference).Assembly;
+    }
+}

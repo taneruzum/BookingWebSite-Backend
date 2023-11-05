@@ -1,0 +1,33 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.DependencyInjection;
+using ReminderApp.Application.Abstractions.Services;
+using Serilog;
+using System.Text;
+
+namespace ReminderApp.Infrastructure.Attributes
+{
+    public class UserRequestAttributeFilter : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            string authorizationHeader = context.HttpContext.Request.Headers["Authorization"];
+
+            if (!string.IsNullOrEmpty(authorizationHeader) && authorizationHeader.StartsWith("Bearer "))
+            {
+                var sp = context.HttpContext.RequestServices;
+                ISession session = context.HttpContext.Session;
+                var jwtService = sp.GetRequiredService<IJwtTokenService>();
+                string token = authorizationHeader.Substring(7);
+
+                var user = jwtService.GetUserWithTokenAsync(token).Result;
+                byte[] emailBytes = Encoding.UTF8.GetBytes(user.Email);
+                session.Set("Email", emailBytes);
+
+                Log.Information($"by {user.Fullname} came the request !");
+            }
+            else
+                Log.Information($"Not authorization person came the request !");
+        }
+    }
+}

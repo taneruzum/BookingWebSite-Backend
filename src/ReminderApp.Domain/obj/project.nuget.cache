@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "l9Aj2lWoCLOCZkRDehGWAF1cKOCUwh2XDZr82akfK0MS/1WyxetM50UnNvW0hdo6SdWD6KT2NaJB3cADZ/3gEg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Casper\\Desktop\\GitHub Projects\\ReminderApp\\src\\ReminderApp.Domain\\ReminderApp.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Casper\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

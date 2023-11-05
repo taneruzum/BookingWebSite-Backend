@@ -1,0 +1,4 @@
+2023-11-05 14:30:30.807 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 395.9698 ms
+2023-11-05 14:30:31.206 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 191.7444 ms
+2023-11-05 14:30:33.912 +03:00 [INF] Not authorization person came the request !
+2023-11-05 14:30:35.015 +03:00 [INF] HTTP DELETE /api/User/Delete-User responded 200 in 1197.1817 ms

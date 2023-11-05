@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.12" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ReminderApp.Domain\ReminderApp.Domain.csproj" />
+    <ProjectReference Include="..\ReminderApp.Infrastructure\ReminderApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\ReminderApp.Persistence\ReminderApp.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

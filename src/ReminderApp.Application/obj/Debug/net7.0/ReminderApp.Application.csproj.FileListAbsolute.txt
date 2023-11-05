@@ -1,0 +1,15 @@
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\obj\Debug\net7.0\ReminderApp.Application.csproj.AssemblyReference.cache
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\obj\Debug\net7.0\ReminderApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\obj\Debug\net7.0\ReminderApp.Application.AssemblyInfoInputs.cache
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\obj\Debug\net7.0\ReminderApp.Application.AssemblyInfo.cs
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\obj\Debug\net7.0\ReminderApp.Application.csproj.CoreCompileInputs.cache
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\bin\Debug\net7.0\ReminderApp.Application.deps.json
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\bin\Debug\net7.0\ReminderApp.Application.dll
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\bin\Debug\net7.0\ReminderApp.Application.pdb
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\bin\Debug\net7.0\ReminderApp.Domain.dll
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\bin\Debug\net7.0\ReminderApp.Domain.pdb
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\obj\Debug\net7.0\ReminderApp.Application.csproj.CopyComplete
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\obj\Debug\net7.0\ReminderApp.Application.dll
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\obj\Debug\net7.0\refint\ReminderApp.Application.dll
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\obj\Debug\net7.0\ReminderApp.Application.pdb
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\obj\Debug\net7.0\ref\ReminderApp.Application.dll
