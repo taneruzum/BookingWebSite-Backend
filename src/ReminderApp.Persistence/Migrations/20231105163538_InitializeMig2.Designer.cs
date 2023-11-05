@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReminderApp.Persistence.Data;
 
@@ -11,9 +12,11 @@ using ReminderApp.Persistence.Data;
 namespace ReminderApp.Persistence.Migrations
 {
     [DbContext(typeof(ReminderDbContext))]
-    partial class ReminderDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231105163538_InitializeMig2")]
+    partial class InitializeMig2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

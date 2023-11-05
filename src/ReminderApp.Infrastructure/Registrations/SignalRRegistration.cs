@@ -13,12 +13,16 @@ namespace ReminderApp.Infrastructure.Registrations
 
             services.AddScoped<NotificationHub>();
 
+            services.AddScoped<UserHub>();
+
             return services;
         }
 
         public static WebApplication HubRegistrationApp(this WebApplication app)
         {
             app.MapHub<NotificationHub>($"/{Channels.NotificationHub}");
+
+            app.MapHub<NotificationHub>($"/{Channels.UserHub}");
 
             return app;
         }

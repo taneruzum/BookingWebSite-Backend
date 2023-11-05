@@ -14,6 +14,8 @@ namespace ReminderApp.Domain.Constats
         public static string Users = $"{nameof(User)}s";
         public static string HubConnections = $"{nameof(HubConnection)}s";
         public static string Notifications = $"{nameof(Notification)}s";
+        public static string Meetings = $"{nameof(Meeting)}s";
+        public static string MeetingItem = $"{nameof(MeetingItem)}s";
     }
 
     public static class TableProperty
@@ -35,6 +37,7 @@ namespace ReminderApp.Domain.Constats
     public static class Channels
     {
         public static string NotificationHub = "notificationHub";
+        public static string UserHub = "userHub";
     }
 
     public static class Claims

@@ -1,4 +1,26 @@
-2023-11-05 14:30:30.807 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 395.9698 ms
-2023-11-05 14:30:31.206 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 191.7444 ms
-2023-11-05 14:30:33.912 +03:00 [INF] Not authorization person came the request !
-2023-11-05 14:30:35.015 +03:00 [INF] HTTP DELETE /api/User/Delete-User responded 200 in 1197.1817 ms
+2023-11-05 19:46:54.253 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 552.1318 ms
+2023-11-05 19:46:54.673 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 202.4506 ms
+2023-11-05 19:47:04.684 +03:00 [INF] Not authorization person came the request !
+2023-11-05 19:47:12.059 +03:00 [ERR] HTTP POST /api/User/Login-User responded 500 in 7612.4730 ms
+ReminderApp.Application.Exceptions.User.UserNotExistsException: User 'asddfg@gmail.com' not exists !
+   at ReminderApp.Application.Features.Commands.User.LoginUser.LoginUserCommandHandler.Handle(LoginUserCommand request, CancellationToken cancellationToken) in C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\Features\Commands\User\LoginUser\LoginUserCommandHandler.cs:line 28
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at ReminderApp.Api.Controllers.UserController.LoginUser(LoginUserDto loginUserDto) in C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Api\Controllers\UserController.cs:line 43
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2023-11-05 19:47:17.748 +03:00 [ERR] ERROR MESSAGE : User 'asddfg@gmail.com' not exists !
+2023-11-05 19:47:19.918 +03:00 [INF] Not authorization person came the request !

@@ -29,7 +29,7 @@ namespace ReminderApp.Infrastructure.Hubs
 
         public override Task OnConnectedAsync()
         {
-            Clients.Caller.SendAsync("OnConnected");
+            Clients.Caller.SendAsync("OnConnectedNotification");
             return base.OnConnectedAsync();
         }
 
@@ -39,7 +39,8 @@ namespace ReminderApp.Infrastructure.Hubs
             HubConnection hubConnection = new HubConnection
             {
                 ConnectionId = connectionId,
-                Email = email
+                Email = email,
+                ConnectionType = Domain.Enums.ConnectionType.NotificationConnectionType
             };
 
             _context.HubConnections.Add(hubConnection);
@@ -48,7 +49,7 @@ namespace ReminderApp.Infrastructure.Hubs
 
         public override Task OnDisconnectedAsync(Exception? exception)
         {
-            var hubConnection = _context.HubConnections.FirstOrDefault(con => con.ConnectionId == Context.ConnectionId);
+            var hubConnection = _context.HubConnections.FirstOrDefault(con => con.ConnectionId == Context.ConnectionId && con.ConnectionType == Domain.Enums.ConnectionType.NotificationConnectionType);
             if (hubConnection != null)
             {
                 _context.HubConnections.Remove(hubConnection);
