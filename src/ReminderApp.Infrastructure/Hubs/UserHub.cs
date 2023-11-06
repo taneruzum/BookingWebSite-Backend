@@ -36,7 +36,7 @@ namespace ReminderApp.Infrastructure.Hubs
         public async Task SendUserCount()
         {
             int count = await _context.Set<User>().CountAsync();
-            await Clients.Caller.SendAsync("UserCount");
+            //await Clients.Caller.SendAsync("UserCount", count);
         }
 
         public override Task OnDisconnectedAsync(Exception? exception)

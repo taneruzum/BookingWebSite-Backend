@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZwU1fzUw/1tT7hyfuoxtQNIMlgPPdp6H1OhU13BXaR3LFYRV8Cai05ex+rME8qM7iw/jzvzIORdHjk/JunEd+A==",
+  "dgSpecHash": "fhLCGH4vdy5ky6ZUFr1pFUNQUvb2Tn8oPx/FUrfZKL3cMDEreEEqV1ykWp4GE7dbdTdrdhtTHG39Bma+E9tsDQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Casper\\Desktop\\GitHub Projects\\ReminderApp\\src\\ReminderApp.Infrastructure\\ReminderApp.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -13,7 +13,7 @@
     "C:\\Users\\Casper\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.0\\fluentvalidation.dependencyinjectionextensions.11.8.0.nupkg.sha512",
     "C:\\Users\\Casper\\.nuget\\packages\\mediatr\\11.1.0\\mediatr.11.1.0.nupkg.sha512",
     "C:\\Users\\Casper\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
-    "C:\\Users\\Casper\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
+    "C:\\Users\\Casper\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Casper\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Casper\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.10\\microsoft.aspnetcore.authentication.jwtbearer.7.0.10.nupkg.sha512",
     "C:\\Users\\Casper\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "u1j1ffCJWqIaHUEGq/jr6VlgyM56PUSTaq/agV/2OXoJ0RyGtxwIxSF49xg67oa3s4d66SAbqXrujk8RWmUc6Q==",
+  "dgSpecHash": "BqnkfnqVjSF+p3pHQb3927qjtS4QeutD0sPvjLcCN6VHQLIncpBqXYUl4rCp/R2/JoqF6cA+0spMxBarAs9zBg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Casper\\Desktop\\GitHub Projects\\ReminderApp\\src\\ReminderApp.Application\\ReminderApp.Application.csproj",
   "expectedPackageFiles": [
@@ -11,7 +11,7 @@
     "C:\\Users\\Casper\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.0\\fluentvalidation.dependencyinjectionextensions.11.8.0.nupkg.sha512",
     "C:\\Users\\Casper\\.nuget\\packages\\mediatr\\11.1.0\\mediatr.11.1.0.nupkg.sha512",
     "C:\\Users\\Casper\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
-    "C:\\Users\\Casper\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
+    "C:\\Users\\Casper\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Casper\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Casper\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Casper\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",

@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "l9Aj2lWoCLOCZkRDehGWAF1cKOCUwh2XDZr82akfK0MS/1WyxetM50UnNvW0hdo6SdWD6KT2NaJB3cADZ/3gEg==",
+  "dgSpecHash": "4dXlfR6p5sLkdFrWB5M00WtPdIeD7Fj2T4sWPZrlBhajIog3r3ZsfeU9h09e3JSGXXPXk2dM5HvhTBAx02fLZw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Casper\\Desktop\\GitHub Projects\\ReminderApp\\src\\ReminderApp.Domain\\ReminderApp.Domain.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Casper\\.nuget\\packages\\mediatr\\11.1.0\\mediatr.11.1.0.nupkg.sha512",
+    "C:\\Users\\Casper\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Casper\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Casper\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
   ],
   "logs": []

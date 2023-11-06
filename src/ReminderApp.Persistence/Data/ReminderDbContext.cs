@@ -1,14 +1,24 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ReminderApp.Application.Abstractions;
 using ReminderApp.Domain.Entities;
-using System.Reflection.Metadata;
+using ReminderApp.Persistence.Interceptors;
 
 namespace ReminderApp.Persistence.Data
 {
     public class ReminderDbContext : DbContext
     {
-        protected ReminderDbContext()
+        private readonly PublishEventInterceptors _publishEventInterceptors;
+
+
+        public ReminderDbContext()
         {
         }
+
+        public ReminderDbContext(DbContextOptions options, PublishEventInterceptors publishEventInterceptors) : base(options)
+        {
+            _publishEventInterceptors = publishEventInterceptors;
+        }
+
         public ReminderDbContext(DbContextOptions options) : base(options)
         {
         }
@@ -19,8 +29,15 @@ namespace ReminderApp.Persistence.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Ignore<List<IDomainEvent>>();
             modelBuilder.ApplyConfigurationsFromAssembly(AssemblyReference.Assembly);
             base.OnModelCreating(modelBuilder);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.AddInterceptors(_publishEventInterceptors);
+            base.OnConfiguring(optionsBuilder);
         }
     }
 }

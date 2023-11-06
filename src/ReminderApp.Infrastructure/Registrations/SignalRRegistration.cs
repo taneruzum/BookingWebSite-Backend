@@ -22,7 +22,7 @@ namespace ReminderApp.Infrastructure.Registrations
         {
             app.MapHub<NotificationHub>($"/{Channels.NotificationHub}");
 
-            app.MapHub<NotificationHub>($"/{Channels.UserHub}");
+            app.MapHub<UserHub>($"/{Channels.UserHub}");
 
             return app;
         }

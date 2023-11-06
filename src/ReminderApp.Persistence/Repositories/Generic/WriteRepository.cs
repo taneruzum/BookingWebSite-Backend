@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ReminderApp.Application.Abstractions;
 using ReminderApp.Domain.Entities.Base;
+using ReminderApp.Domain.Entities.Events;
 using ReminderApp.Persistence.Data;
 
 namespace ReminderApp.Persistence.Repositories.Generic
@@ -21,6 +22,7 @@ namespace ReminderApp.Persistence.Repositories.Generic
             try
             {
                 await _table.AddAsync(entity);
+                AddDomainEvent(entity);
                 return true;
             }
             catch (System.Exception)
@@ -34,6 +36,7 @@ namespace ReminderApp.Persistence.Repositories.Generic
             try
             {
                 _table.Remove(entity);
+                AddDomainEvent(entity);
                 return true;
             }
             catch (System.Exception)
@@ -74,12 +77,19 @@ namespace ReminderApp.Persistence.Repositories.Generic
             try
             {
                 _table.Update(entity);
+                AddDomainEvent(entity);
                 return true;
             }
             catch (System.Exception)
             {
                 return false;
             }
+        }
+
+        private void AddDomainEvent(T entity)
+        {
+            Type t = typeof(T);
+            entity.AddDomainEvent(new CreateDomainEvent($"{t.Name}s"));
         }
     }
 }

@@ -15,6 +15,8 @@ namespace ReminderApp.Infrastructure
 
             services.LoggerRegistration(configuration);
 
+            services.MediatrRegistration();
+
             return services;
         }
 

@@ -9,11 +9,11 @@ namespace ReminderApp.Persistence
     {
         public static IServiceCollection PersistenceDependencyInjection(this IServiceCollection services, IConfiguration configuration)
         {
+            services.DatabaseRegistration(configuration);
+
             services.RepositoryRegistration();
 
             services.ServiceRegistrations(configuration);
-
-            services.DatabaseRegistration(configuration);
 
             services.GenericRegistration();
 

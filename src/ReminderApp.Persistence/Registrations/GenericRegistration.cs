@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ReminderApp.Application.Abstractions;
+using ReminderApp.Application.Abstractions.Services;
 using ReminderApp.Persistence.Data;
 using ReminderApp.Persistence.Repositories.Generic;
 
@@ -16,10 +17,11 @@ namespace ReminderApp.Persistence.Registrations
             services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
 
             var context = sp.GetRequiredService<ReminderDbContext>();
+            var pubEventService = sp.GetRequiredService<IPubEventService>();
 
-            services.AddScoped(sp =>
+            services.AddScoped<IUnitOfWork>(sp =>
             {
-                return new UnitOfWork(context);
+                return new UnitOfWork(context, pubEventService);
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
