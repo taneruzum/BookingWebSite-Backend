@@ -9,11 +9,11 @@
                 options.AddPolicy("AllowOrigin",
                     builder =>
                     {
-                        builder.WithOrigins("https://localhost:7265")
-                            .AllowAnyHeader()
+                         builder.AllowAnyHeader()
                             .AllowAnyMethod()
+                            .SetIsOriginAllowed(_ => true) 
                             .AllowCredentials();
-                    });
+        });
             });
 
             return services;

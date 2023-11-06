@@ -62,13 +62,5 @@ namespace ReminderApp.Api.Controllers
             var response = await _mediatr.Send(getUserWithTokenCommand);
             return response is not null ? Ok(response) : BadRequest(response);
         }
-
-        [HttpGet]
-        [Route("RANDOMREQUEST")]
-        public IActionResult RANDOMREQUEST()
-        {
-            Serilog.Log.Error("ERRRRRRRROOOOOOOOR");
-            return Ok();
-        }
     }
 }
