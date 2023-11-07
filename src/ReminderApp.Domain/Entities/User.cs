@@ -7,7 +7,7 @@ namespace ReminderApp.Domain.Entities
     public class User : BaseModel
     {
         public Guid Id { get; set; }
-        public string Fullname { get; set; }
+        public string Fullname { get; set; } = "_-NONE-_";
         public string Email { get; set; }
         public string Password { get; set; }
     }
