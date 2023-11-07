@@ -23,11 +23,11 @@ namespace ReminderApp.Api
         {
             app.CorsRegistrationApp();
 
-            app.HealthCheckRegistrationApp();
+            app.SessionRegistrationApp();
 
             app.SwaggerRegistrationApp();
 
-            app.CorsRegistrationApp();
+            //app.HealthCheckRegistrationApp();
 
             return app;
         }

@@ -12,5 +12,12 @@ namespace ReminderApp.Api.Registrations
 
             return services;
         }
+
+        public static WebApplication SessionRegistrationApp(this WebApplication app)
+        {
+            app.UseSession();
+
+            return app;
+        }
     }
 }

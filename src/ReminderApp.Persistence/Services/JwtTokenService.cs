@@ -28,12 +28,14 @@ namespace ReminderApp.Persistence.Services
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:Secret"])),
                 SecurityAlgorithms.HmacSha256
             );
+
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub,user.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.Sub,Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.GivenName,user.Email),
                 new Claim(JwtRegisteredClaimNames.Email,user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.Role,Roles.UserRole)
             };
 
             var securityToken = new JwtSecurityToken(

@@ -12,11 +12,10 @@
 
         public static WebApplication HealthCheckRegistrationApp(this WebApplication app)
         {
-            app.UseRouting();
+            //app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
                 endpoints.MapHealthChecks("/health");
             });
 

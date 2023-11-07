@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ReminderApp.Application.Abstractions.Services;
 using ReminderApp.Application.Dtos.User;
@@ -7,6 +8,7 @@ using ReminderApp.Application.Features.Commands.User.DeleteUser;
 using ReminderApp.Application.Features.Commands.User.LoginUser;
 using ReminderApp.Application.Features.Queries.User.GetUserWithToken;
 using ReminderApp.Application.Validations.Validate;
+using ReminderApp.Domain.Constats;
 using ReminderApp.Domain.Models.Login;
 using ReminderApp.Infrastructure.Attributes;
 
@@ -61,6 +63,14 @@ namespace ReminderApp.Api.Controllers
             GetUserWithTokenCommand getUserWithTokenCommand = new(token);
             var response = await _mediatr.Send(getUserWithTokenCommand);
             return response is not null ? Ok(response) : BadRequest(response);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin,User")]
+        [Route("Token-Expire-Test")]
+        public async Task<IActionResult> TokenExpireTest()
+        {
+            return Ok("NOT SKT");
         }
     }
 }

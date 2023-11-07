@@ -6,10 +6,9 @@ namespace ReminderApp.Api.Registrations
     {
         public static IServiceCollection ControllerRegistration(this IServiceCollection services)
         {
-
             services.AddControllers(options =>
             {
-                
+
             })
                 .AddJsonOptions(options =>
                 {

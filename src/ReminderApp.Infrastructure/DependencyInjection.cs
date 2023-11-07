@@ -38,7 +38,6 @@ namespace ReminderApp.Infrastructure
 
             return app;
         }
-
         ////string email = Encoding.UTF8.GetString(emailBytes);
     }
 }

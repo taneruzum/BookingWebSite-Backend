@@ -21,11 +21,13 @@ var app = builder.Build();
 
 app.InfrastructureDependencyInjectionApp();
 
-app.UseRouting();
-
 app.UseHttpsRedirection();
 
 app.ApiDependencyApp();
+
+app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

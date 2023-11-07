@@ -54,4 +54,9 @@ namespace ReminderApp.Domain.Constats
 
         public static List<string> txtLogFiles = txtFiles.ToList();
     }
+
+    public class Roles
+    {
+        public const string UserRole = "User";
+    }
 }
