@@ -26,11 +26,13 @@ namespace ReminderApp.Api.Controllers
         private readonly IMediator _mediatr;
         private readonly ICookieService _cookieService;
         private IJwtTokenService _jwtTokenService;
-        public UserController(IMediator mediatr, ICookieService cookieService, IJwtTokenService jwtTokenService)
+        private readonly IImageService _imageService;
+        public UserController(IMediator mediatr, ICookieService cookieService, IJwtTokenService jwtTokenService, IImageService imageService)
         {
             _mediatr = mediatr;
             _cookieService = cookieService;
             _jwtTokenService = jwtTokenService;
+            _imageService = imageService;
         }
 
         [HttpPost]
@@ -102,6 +104,12 @@ namespace ReminderApp.Api.Controllers
             return File(response.Photo, $"{response.FileType}/{response.ContentType}");
         }
 
+        [HttpPost]
+        [Route("Image-Add")]
+        public async Task<IActionResult> ImageAdd([FromForm] FileUpload fileUpload)
+        {
+            return Ok(await _imageService.AddImageAsync(fileUpload));
+        }
 
 
 

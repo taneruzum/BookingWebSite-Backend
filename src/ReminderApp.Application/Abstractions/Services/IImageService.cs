@@ -10,5 +10,7 @@ namespace ReminderApp.Application.Abstractions.Services
         Task<Image> GetImageAsync(Guid ImageId);
 
         Task<bool> AddImageToUserAsync(User user, FileUpload fileUpload);
+
+        Task<bool> AssignUserDefaultImage(User user);
     }
 }

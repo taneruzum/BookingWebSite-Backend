@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ReminderApp.Application.Abstractions.Services;
-using ReminderApp.Persistence.Interceptors;
 using ReminderApp.Persistence.Services;
 
 namespace ReminderApp.Persistence.Registrations
@@ -13,8 +12,6 @@ namespace ReminderApp.Persistence.Registrations
             var sp = GetProvider(services);
 
             services.AddScoped<IDateTimeService, DateTimeService>();
-
-            services.AddScoped<PublishEventInterceptors>();
 
             services.AddScoped<IPubEventService, PubEventService>();
 

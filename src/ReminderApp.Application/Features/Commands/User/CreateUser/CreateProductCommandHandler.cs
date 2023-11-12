@@ -11,12 +11,14 @@ namespace ReminderApp.Application.Features.Commands.User.CreateUser
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IHashService _hashService;
+        private readonly IImageService _imageService;
 
-        public CreateProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IHashService hashService)
+        public CreateProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IHashService hashService, IImageService imageService)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _hashService = hashService;
+            _imageService = imageService;
         }
 
         public async Task<bool> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -28,9 +30,13 @@ namespace ReminderApp.Application.Features.Commands.User.CreateUser
             if (resultAny)
                 throw new UserAlreadyExistsException(request.createUserDto.Fullname);
 
-            bool result = await _unitOfWork.GetWriteRepository<ReminderApp.Domain.Entities.User>().CreateAsync(_mapper.Map<ReminderApp.Domain.Entities.User>(request.createUserDto));
+            var user = _mapper.Map<ReminderApp.Domain.Entities.User>(request.createUserDto);
+
+            bool result = await _unitOfWork.GetWriteRepository<ReminderApp.Domain.Entities.User>().CreateAsync(user);
 
             int dbResult = await _unitOfWork.SaveChangesAsync();
+
+            await _imageService.AssignUserDefaultImage(user);
 
             return dbResult <= 0 ? false : true;
         }

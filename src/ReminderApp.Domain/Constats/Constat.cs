@@ -7,6 +7,7 @@ namespace ReminderApp.Domain.Constats
         public static string ApplicationName = "ReminderApp.Api";
         public static string Version = "v1";
         public static string Description = "BasketApi version1 project";
+        public static string DefaultImage = "795d10ad-8cc4-41ca-86a1-9ed6462c1b82";
     }
 
     public static class TableNames
