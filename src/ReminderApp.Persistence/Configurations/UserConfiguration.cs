@@ -28,6 +28,10 @@ namespace ReminderApp.Persistence.Configurations
             builder.Property(u => u.CreatedDate).HasDefaultValue(Time.GetNowGet);
 
             builder.Property(u => u.Password).HasMaxLength(200).IsRequired();
+
+            builder.HasMany(u => u.ImageUsers)
+              .WithOne(iu => iu.User)
+              .HasForeignKey(iu => iu.UserId);
         }
     }
 }

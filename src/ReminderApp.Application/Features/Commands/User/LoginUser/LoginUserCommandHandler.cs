@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.Extensions.Configuration;
 using ReminderApp.Application.Abstractions;
 using ReminderApp.Application.Abstractions.Services;
 using ReminderApp.Application.Exceptions.User;
@@ -10,12 +11,16 @@ namespace ReminderApp.Application.Features.Commands.User.LoginUser
         private readonly IUnitOfWork _unitOfWork;
         private readonly IJwtTokenService _jwtTokenService;
         private readonly IHashService _hashService;
+        private readonly IUserService _userService;
+        private readonly IConfiguration _configuration;
 
-        public LoginUserCommandHandler(IUnitOfWork unitOfWork, IJwtTokenService jwtTokenService, IHashService hashService)
+        public LoginUserCommandHandler(IUnitOfWork unitOfWork, IJwtTokenService jwtTokenService, IHashService hashService, IUserService userService, IConfiguration configuration)
         {
             _unitOfWork = unitOfWork;
             _jwtTokenService = jwtTokenService;
             _hashService = hashService;
+            _userService = userService;
+            _configuration = configuration;
         }
 
         public async Task<(bool isSuccess, string token)> Handle(LoginUserCommand request, CancellationToken cancellationToken)
@@ -29,7 +34,11 @@ namespace ReminderApp.Application.Features.Commands.User.LoginUser
 
             var user = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.User>().GetAsync(u => u.Email == request.loginUserDto.Email);
 
-            return (dbResult, _jwtTokenService.GenerateToken(user));
+            var token = _jwtTokenService.GenerateToken(user);
+
+            await _userService.UpdateRefreshTokenAsync(token.RefreshToken, user, token.Expiration, int.Parse(_configuration["JwtSettings:ExpireMinuteRefToken"]));
+
+            return (dbResult, token.AccessToken);
         }
     }
 }

@@ -6,9 +6,15 @@ namespace ReminderApp.Domain.Entities
     [Table("Users")]
     public class User : BaseModel
     {
-        public Guid Id { get; set; }
         public string Fullname { get; set; } = "_-NONE-_";
         public string Email { get; set; }
         public string Password { get; set; }
+
+
+        public string? RefreshToken { get; set; }
+        public DateTime? RefreshTokenEndDate { get; set; }
+
+
+        public List<ImageUser>? ImageUsers { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ReminderApp.Application.Abstractions;
+﻿using Microsoft.EntityFrameworkCore;
+using ReminderApp.Application.Abstractions;
 using ReminderApp.Application.Abstractions.Services;
 using ReminderApp.Domain.Entities.Base;
 using ReminderApp.Persistence.Data;
@@ -14,6 +15,11 @@ namespace ReminderApp.Persistence.Repositories.Generic
         {
             _context = context;
             _pubEventService = pubEventService;
+        }
+
+        public DbSet<T> GetTable<T>(DbContext context) where T : BaseModel
+        {
+            return context.Set<T>();
         }
 
         public async Task<int> SaveChangesAsync()

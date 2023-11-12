@@ -1,4 +1,5 @@
-﻿using ReminderApp.Domain.Constats;
+﻿using Microsoft.OpenApi.Models;
+using ReminderApp.Domain.Constats;
 
 namespace ReminderApp.Api.Registrations
 {
@@ -14,6 +15,30 @@ namespace ReminderApp.Api.Registrations
                     Title = Constat.ApplicationName,
                     Version = Constat.Version,
                     Description = Constat.Description,
+                });
+
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer"
+                });
+
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] { }
+                    }
                 });
             });
             return services;

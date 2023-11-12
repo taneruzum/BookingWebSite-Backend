@@ -1,5 +1,4 @@
-﻿using MediatR;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ReminderApp.Application.Abstractions.Services;
 using ReminderApp.Persistence.Interceptors;
@@ -19,10 +18,14 @@ namespace ReminderApp.Persistence.Registrations
 
             services.AddScoped<IPubEventService, PubEventService>();
 
+            services.AddScoped<IImageService, ImageService>();
+
             services.AddScoped<IHashService>(sp =>
             {
                 return new HashService(configuration);
             });
+
+            services.AddScoped<IUserService, UserService>();
 
             return services;
         }

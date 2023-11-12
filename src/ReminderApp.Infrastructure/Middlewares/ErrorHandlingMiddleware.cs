@@ -31,7 +31,7 @@ namespace ReminderApp.Infrastructure.Middlewares
         {
             Log.Error("ERROR MESSAGE : " + ex.Message);
             var code = HttpStatusCode.InternalServerError;
-            var result = JsonExtension.SerialJson(new { error = "Error appeared when maked process !" });
+            var result = (new { error = "Error appeared when maked process ! => " + ex.Message }).SerialJson();
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)code;
             return context.Response.WriteAsync(result);

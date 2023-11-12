@@ -48,7 +48,7 @@ namespace ReminderApp.Persistence.Services
             using (Aes aesAlg = Aes.Create())
             {
                 aesAlg.Key = Encoding.UTF8.GetBytes(key);
-                aesAlg.IV = new byte[16]; 
+                aesAlg.IV = new byte[16];
 
                 ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 

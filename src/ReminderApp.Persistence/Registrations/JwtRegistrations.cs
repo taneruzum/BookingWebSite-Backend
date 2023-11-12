@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -28,15 +29,17 @@ namespace ReminderApp.Persistence.Registrations
                     Encoding.UTF8.GetBytes(configuration["JwtSettings:Secret"])
                     ),
                     LifetimeValidator = (notBefore, expires, securityToken, validationParameters) => expires != null ? expires > DateTime.UtcNow : false
-                });
+                })
+                .AddCookie("default");
 
             var sp = GetProvider(services);
             var dateService = sp.GetRequiredService<IDateTimeService>();
             var unitofworkService = sp.GetRequiredService<IUnitOfWork>();
+            var httpContextAcc = sp.GetRequiredService<IHttpContextAccessor>();
 
             services.AddScoped<IJwtTokenService>(sp =>
             {
-                return new JwtTokenService(configuration, dateService, unitofworkService);
+                return new JwtTokenService(configuration, dateService, unitofworkService, httpContextAcc);
             });
 
             return services;

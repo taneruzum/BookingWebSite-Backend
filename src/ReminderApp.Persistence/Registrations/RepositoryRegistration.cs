@@ -18,6 +18,14 @@ namespace ReminderApp.Persistence.Registrations
 
             services.AddScoped<IHubConnectionReadRepository, HubConnectionReadRepository>();
 
+            services.AddScoped<IImageReadRepository, ImageReadRepository>();
+
+            services.AddScoped<IImageWriteRepository, ImageWriteRepository>();
+
+            services.AddScoped<IImageUserReadRepository, ImageUserReadRepository>();
+
+            services.AddScoped<IImageUserWriteRepository, ImageUserWriteRepository>();
+
             return services;
         }
     }

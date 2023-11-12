@@ -26,6 +26,8 @@ namespace ReminderApp.Persistence.Data
         public DbSet<User> Users { get; set; }
         public DbSet<HubConnection> HubConnections { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Image> Images { get; set; }
+        public DbSet<ImageUser> ImageUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

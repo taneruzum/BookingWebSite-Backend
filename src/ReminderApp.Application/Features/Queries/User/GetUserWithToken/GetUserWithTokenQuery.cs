@@ -2,7 +2,7 @@
 
 namespace ReminderApp.Application.Features.Queries.User.GetUserWithToken
 {
-    public record GetUserWithTokenCommand(
+    public record GetUserWithTokenQuery(
        string token
    ) : IRequest<Domain.Entities.User>;
 }

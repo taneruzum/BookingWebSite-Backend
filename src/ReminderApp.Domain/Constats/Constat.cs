@@ -16,6 +16,8 @@ namespace ReminderApp.Domain.Constats
         public static string Notifications = $"{nameof(Notification)}s";
         public static string Meetings = $"{nameof(Meeting)}s";
         public static string MeetingItem = $"{nameof(MeetingItem)}s";
+        public static string Images = $"{nameof(Image)}s";
+        public static string ImageUsers = $"{nameof(ImageUser)}s";
     }
 
     public static class TableProperty

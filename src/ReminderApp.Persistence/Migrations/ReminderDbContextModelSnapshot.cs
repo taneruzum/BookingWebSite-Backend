@@ -38,7 +38,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 11, 6, 22, 34, 9, 720, DateTimeKind.Local).AddTicks(1141));
+                        .HasDefaultValue(new DateTime(2023, 11, 12, 16, 46, 56, 501, DateTimeKind.Local).AddTicks(8747));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -55,6 +55,72 @@ namespace ReminderApp.Persistence.Migrations
                     b.ToTable("HubConnections", (string)null);
                 });
 
+            modelBuilder.Entity("ReminderApp.Domain.Entities.Image", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ContentType")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2023, 11, 12, 16, 46, 56, 501, DateTimeKind.Local).AddTicks(8747));
+
+                    b.Property<int>("FileType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Photo")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<bool>("isActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images", (string)null);
+                });
+
+            modelBuilder.Entity("ReminderApp.Domain.Entities.ImageUser", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ImageId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ImageId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ImageUsers", (string)null);
+                });
+
             modelBuilder.Entity("ReminderApp.Domain.Entities.Meeting", b =>
                 {
                     b.Property<Guid>("Id")
@@ -64,7 +130,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 11, 6, 22, 34, 9, 720, DateTimeKind.Local).AddTicks(1141));
+                        .HasDefaultValue(new DateTime(2023, 11, 12, 16, 46, 56, 501, DateTimeKind.Local).AddTicks(8747));
 
                     b.Property<int>("Day")
                         .HasColumnType("int");
@@ -106,7 +172,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 11, 6, 22, 34, 9, 720, DateTimeKind.Local).AddTicks(1141));
+                        .HasDefaultValue(new DateTime(2023, 11, 12, 16, 46, 56, 501, DateTimeKind.Local).AddTicks(8747));
 
                     b.Property<Guid>("MeetingId")
                         .HasColumnType("uniqueidentifier");
@@ -141,7 +207,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 11, 6, 22, 34, 9, 720, DateTimeKind.Local).AddTicks(1141));
+                        .HasDefaultValue(new DateTime(2023, 11, 12, 16, 46, 56, 501, DateTimeKind.Local).AddTicks(8747));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -175,7 +241,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 11, 6, 22, 34, 9, 720, DateTimeKind.Local).AddTicks(1141));
+                        .HasDefaultValue(new DateTime(2023, 11, 12, 16, 46, 56, 501, DateTimeKind.Local).AddTicks(8747));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -193,6 +259,12 @@ namespace ReminderApp.Persistence.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RefreshTokenEndDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("isActive")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
@@ -201,6 +273,25 @@ namespace ReminderApp.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users", (string)null);
+                });
+
+            modelBuilder.Entity("ReminderApp.Domain.Entities.ImageUser", b =>
+                {
+                    b.HasOne("ReminderApp.Domain.Entities.Image", "Image")
+                        .WithMany("ImageUsers")
+                        .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ReminderApp.Domain.Entities.User", "User")
+                        .WithMany("ImageUsers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Image");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ReminderApp.Domain.Entities.MeetingItem", b =>
@@ -214,9 +305,19 @@ namespace ReminderApp.Persistence.Migrations
                     b.Navigation("Meeting");
                 });
 
+            modelBuilder.Entity("ReminderApp.Domain.Entities.Image", b =>
+                {
+                    b.Navigation("ImageUsers");
+                });
+
             modelBuilder.Entity("ReminderApp.Domain.Entities.Meeting", b =>
                 {
                     b.Navigation("MeetingItems");
+                });
+
+            modelBuilder.Entity("ReminderApp.Domain.Entities.User", b =>
+                {
+                    b.Navigation("ImageUsers");
                 });
 #pragma warning restore 612, 618
         }
