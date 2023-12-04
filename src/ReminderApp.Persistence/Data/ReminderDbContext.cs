@@ -21,6 +21,7 @@ namespace ReminderApp.Persistence.Data
         public DbSet<ImageUser> ImageUsers { get; set; }
         public DbSet<Meeting> Meetings { get; set; }
         public DbSet<MeetingItem> MeetingItems { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

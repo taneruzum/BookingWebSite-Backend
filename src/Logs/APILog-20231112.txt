@@ -1,6 +1,0 @@
-2023-11-12 19:58:54.486 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 331.4369 ms
-2023-11-12 19:58:54.877 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 188.0179 ms
-2023-11-12 19:59:07.155 +03:00 [INF] Not authorization person came the request !
-2023-11-12 19:59:08.302 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 1404.2403 ms
-2023-11-12 19:59:22.663 +03:00 [INF] by kadir came the request !
-2023-11-12 19:59:22.956 +03:00 [INF] HTTP GET /api/User/User-Image-Get responded 200 in 545.1317 ms

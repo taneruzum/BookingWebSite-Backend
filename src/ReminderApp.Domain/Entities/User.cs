@@ -16,5 +16,7 @@ namespace ReminderApp.Domain.Entities
 
 
         public List<ImageUser>? ImageUsers { get; set; }
+
+        public Comment Comment { get; set; }
     }
 }

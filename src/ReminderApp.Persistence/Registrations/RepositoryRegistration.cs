@@ -26,6 +26,10 @@ namespace ReminderApp.Persistence.Registrations
 
             services.AddScoped<IImageUserWriteRepository, ImageUserWriteRepository>();
 
+            services.AddScoped<ICommentReadRepository, CommentReadRepository>();
+
+            services.AddScoped<ICommentWriteRepository, CommentWriteRepository>();
+
             return services;
         }
     }
