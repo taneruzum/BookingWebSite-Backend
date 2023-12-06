@@ -10,6 +10,7 @@ namespace ReminderApp.Application.Mappers
         public CommentProfile()
         {
             CreateMap<AddCommentCommand, AddCommentDto>().ReverseMap();
+
             CreateMap<Comment, AddCommentDto>().ReverseMap();
         }
     }
