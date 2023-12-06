@@ -9,6 +9,8 @@ namespace ReminderApp.Application.Mappers
         public UserProfile()
         {
             CreateMap<CreateUserDto, User>().ReverseMap();
+
+            CreateMap<User, AllUserDto>().ReverseMap();
         }
     }
 }

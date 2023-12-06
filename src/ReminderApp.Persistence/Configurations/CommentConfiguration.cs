@@ -10,6 +10,24 @@ namespace ReminderApp.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
         {
+            //builder.ToTable(TableNames.Comments);
+
+            //builder.HasKey(c => c.Id);
+
+            //builder.Property(c => c.isActive).HasDefaultValue(true);
+
+            //builder.Property(c => c.CreatedDate).HasDefaultValue(Time.GetNowGet);
+
+            //builder.Property(c => c.Star);
+
+            //builder.Property(c => c.UserComment);
+
+            //builder.HasOne(c => c.User)
+            //       .WithOne(u => u.Comment)
+            //       .HasForeignKey<Comment>(c => c.UserId);
+
+            //--------------------------------------------------
+
             builder.ToTable(TableNames.Comments);
 
             builder.HasKey(c => c.Id);
@@ -23,8 +41,10 @@ namespace ReminderApp.Persistence.Configurations
             builder.Property(c => c.UserComment);
 
             builder.HasOne(c => c.User)
-                   .WithOne(u => u.Comment)
-                   .HasForeignKey<Comment>(c => c.UserId);
+               .WithOne(u => u.Comment)
+               .HasForeignKey<Comment>(c => c.UserId)
+               .IsRequired();
+
         }
     }
 }

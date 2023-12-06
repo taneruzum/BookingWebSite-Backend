@@ -3,6 +3,8 @@ using ReminderApp.Application.Abstractions;
 using ReminderApp.Application.Abstractions.Services;
 using ReminderApp.Domain.Entities;
 using ReminderApp.Domain.Models;
+using ReminderApp.Domain.Constats;
+using ReminderApp.Application.Extensions;
 
 namespace ReminderApp.Persistence.Services
 {
@@ -41,7 +43,12 @@ namespace ReminderApp.Persistence.Services
 
         public async Task<bool> AssignUserDefaultImage(User user)
         {
-            bool imageUserRes = await _unitOfWork.GetWriteRepository<ImageUser>().CreateAsync(new() { ImageId = Guid.Parse(ReminderApp.Domain.Constats.Constat.DefaultImage), UserId = user.Id });
+            if (!await _unitOfWork.GetReadRepository<Image>().AnyAsync(i => i.Name == Constat.DefaultImage))
+            {
+                await _unitOfWork.GetWriteRepository<Image>().CreateAsync(new() { Name = Constat.DefaultImage, Path = Constat.DefaultImagePath, FileType = Domain.Enums.FileType.image, Photo = Constat.DefaultImagePhoto.HexStringToByteArray(), isActive = true, CreatedDate = DateTime.Now, Id = Guid.Parse(Constat.DefaultImageId) });
+            }
+
+            bool imageUserRes = await _unitOfWork.GetWriteRepository<ImageUser>().CreateAsync(new() { ImageId = Guid.Parse(Constat.DefaultImageId), UserId = user.Id });
 
             return await _unitOfWork.SaveChangesAsync() > 0;
         }

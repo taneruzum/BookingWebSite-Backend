@@ -8,6 +8,7 @@ using ReminderApp.Application.Features.Commands.User.DeleteUser;
 using ReminderApp.Application.Features.Commands.User.LoginUser;
 using ReminderApp.Application.Features.Commands.User.RefreshToken;
 using ReminderApp.Application.Features.Commands.User.UserImageAdd;
+using ReminderApp.Application.Features.Queries.User.GetAllUser;
 using ReminderApp.Application.Features.Queries.User.GetUserWithToken;
 using ReminderApp.Application.Features.Queries.User.UserImageGet;
 using ReminderApp.Application.Validations.Validate;
@@ -59,6 +60,15 @@ namespace ReminderApp.Api.Controllers
             DeleteUserCommand deleteUserCommand = new(id);
             var response = await _mediatr.Send(deleteUserCommand);
             return response is true ? Ok(response) : BadRequest(response);
+        }
+
+        [HttpGet]
+        [Route("Get-All-User")]
+        public async Task<IActionResult> GetAllUser()
+        {
+            GetAllUserQuery getAllUserQuery = new();
+            List<AllUserDto> allUserDtos = await _mediatr.Send(getAllUserQuery);
+            return allUserDtos is not null ? Ok(allUserDtos) : NotFound(null);
         }
 
         [HttpGet]

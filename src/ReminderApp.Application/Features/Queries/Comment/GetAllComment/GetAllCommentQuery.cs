@@ -3,6 +3,7 @@ using ReminderApp.Application.Dtos.Comment;
 
 namespace ReminderApp.Application.Features.Queries.Comment.GetAllComment
 {
-    public sealed record GetAllCommentQuery(
-        ) : IRequest<List<AllCommentDto>>;
+    public record GetAllCommentQuery(
+
+    ) : IRequest<List<AllCommentDto>?>;
 }

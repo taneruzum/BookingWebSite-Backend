@@ -7,7 +7,10 @@ namespace ReminderApp.Domain.Constats
         public static string ApplicationName = "ReminderApp.Api";
         public static string Version = "v1";
         public static string Description = "BasketApi version1 project";
-        public static string DefaultImage = "795d10ad-8cc4-41ca-86a1-9ed6462c1b82";
+        public static string DefaultImage = "DEFAULTIMAGE";
+        public static string DefaultImageId = "4a7bd170-6f42-40b7-aa49-0b9d1dfb2a55";
+        public static string DefaultImagePath = "/DEFAULT/IMAGE";
+        public static string DefaultImagePhoto = "0x89504E470D0A1A0A0000000D494844520000050000000500080600000018E4FFF70001971F4944415478DAECDD799CA56575E0F1DF79DE7B6BEB5ABAD9115CC0C8223BC82286B8458D26319918B339269AC918A351A3E3249AC9A289C6388968349A98452789C9A8199D8CD98C5B4490ADA1D915C40888A0206D775557D77ADF";
     }
 
     public static class TableNames
