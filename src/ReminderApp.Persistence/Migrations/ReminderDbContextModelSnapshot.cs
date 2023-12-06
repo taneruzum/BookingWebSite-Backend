@@ -31,7 +31,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 11, 13, 0, 1, 3, 359, DateTimeKind.Local).AddTicks(1321));
+                        .HasDefaultValue(new DateTime(2023, 12, 6, 16, 34, 39, 596, DateTimeKind.Local).AddTicks(94));
 
                     b.Property<int>("Star")
                         .HasColumnType("int");
@@ -72,7 +72,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 11, 13, 0, 1, 3, 359, DateTimeKind.Local).AddTicks(1321));
+                        .HasDefaultValue(new DateTime(2023, 12, 6, 16, 34, 39, 596, DateTimeKind.Local).AddTicks(94));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -101,7 +101,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 11, 13, 0, 1, 3, 359, DateTimeKind.Local).AddTicks(1321));
+                        .HasDefaultValue(new DateTime(2023, 12, 6, 16, 34, 39, 596, DateTimeKind.Local).AddTicks(94));
 
                     b.Property<int>("FileType")
                         .HasColumnType("int");
@@ -164,7 +164,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 11, 13, 0, 1, 3, 359, DateTimeKind.Local).AddTicks(1321));
+                        .HasDefaultValue(new DateTime(2023, 12, 6, 16, 34, 39, 596, DateTimeKind.Local).AddTicks(94));
 
                     b.Property<int>("Day")
                         .HasColumnType("int");
@@ -206,7 +206,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 11, 13, 0, 1, 3, 359, DateTimeKind.Local).AddTicks(1321));
+                        .HasDefaultValue(new DateTime(2023, 12, 6, 16, 34, 39, 596, DateTimeKind.Local).AddTicks(94));
 
                     b.Property<Guid>("MeetingId")
                         .HasColumnType("uniqueidentifier");
@@ -241,7 +241,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 11, 13, 0, 1, 3, 359, DateTimeKind.Local).AddTicks(1321));
+                        .HasDefaultValue(new DateTime(2023, 12, 6, 16, 34, 39, 596, DateTimeKind.Local).AddTicks(94));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -275,18 +275,13 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 11, 13, 0, 1, 3, 359, DateTimeKind.Local).AddTicks(1321));
+                        .HasDefaultValue(new DateTime(2023, 12, 6, 16, 34, 39, 596, DateTimeKind.Local).AddTicks(94));
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)")
                         .HasAnnotation("RegularExpression", "[email_regex]");
-
-                    b.Property<string>("Fullname")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Password")
                         .IsRequired()

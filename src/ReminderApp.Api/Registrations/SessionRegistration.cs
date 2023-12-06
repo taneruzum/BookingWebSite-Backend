@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace ReminderApp.Api.Registrations
+﻿namespace ReminderApp.Api.Registrations
 {
     public static class Session
     {

@@ -24,13 +24,11 @@ namespace ReminderApp.Api.Controllers
     public class UserController : ControllerBase
     {
         private readonly IMediator _mediatr;
-        private readonly ICookieService _cookieService;
         private IJwtTokenService _jwtTokenService;
         private readonly IImageService _imageService;
-        public UserController(IMediator mediatr, ICookieService cookieService, IJwtTokenService jwtTokenService, IImageService imageService)
+        public UserController(IMediator mediatr, IJwtTokenService jwtTokenService, IImageService imageService)
         {
             _mediatr = mediatr;
-            _cookieService = cookieService;
             _jwtTokenService = jwtTokenService;
             _imageService = imageService;
         }
@@ -110,41 +108,5 @@ namespace ReminderApp.Api.Controllers
         {
             return Ok(await _imageService.AddImageAsync(fileUpload));
         }
-
-
-
-
-        //[HttpGet]
-        //[Authorize(Roles = "Admin,User")]
-        //[Route("Token-Expire-Test")]
-        //public async Task<IActionResult> TokenExpireTest()
-        //{
-        //    return Ok("NOT SKT");
-        //}
-
-
-        //[HttpPost]
-        //[Route("Add-Cookie")]
-        //public async Task<IActionResult> AddCookie([FromQuery] string cookie)
-        //{
-        //    _cookieService.AddCookieValue("test", cookie);
-        //    return Ok();
-        //}
-
-        //[HttpGet]
-        //[Route("Get-Cookie")]
-        //public async Task<IActionResult> GetCookie()
-        //{
-        //    var response = _cookieService.GetCookieValue("test");
-        //    return Ok(response);
-        //}
-
-        //[HttpDelete]
-        //[Route("Delete-Cookie")]
-        //public async Task<IActionResult> DeleteCookie()
-        //{
-        //    _cookieService.DeleteCoolie("test");
-        //    return Ok();
-        //}
     }
 }

@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
 using ReminderApp.Application.Abstractions.Services;
 using Serilog;
-using System.Text;
 
 namespace ReminderApp.Infrastructure.Attributes
 {
@@ -16,15 +14,15 @@ namespace ReminderApp.Infrastructure.Attributes
             if (!string.IsNullOrEmpty(authorizationHeader) && authorizationHeader.StartsWith("Bearer "))
             {
                 var sp = context.HttpContext.RequestServices;
-                ISession session = context.HttpContext.Session;
+
                 var jwtService = sp.GetRequiredService<IJwtTokenService>();
+                var cookieService = sp.GetRequiredService<ICookieService>();
                 string token = authorizationHeader.Substring(7);
 
                 var user = jwtService.GetUserWithTokenAsync(token).Result;
-                byte[] emailBytes = Encoding.UTF8.GetBytes(user.Email);
-                session.Set("Email", emailBytes);
+                cookieService.AddCookieValue("Email", user.Email);
 
-                Log.Information($"by {user.Fullname} came the request !");
+                Log.Information($"by {user.Email} came the request !");
             }
             else
                 Log.Information($"Not authorization person came the request !");

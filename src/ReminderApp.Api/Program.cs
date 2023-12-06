@@ -5,7 +5,11 @@ using ReminderApp.Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.ApiDependencyInjection(builder.Configuration);
 
 builder.Services.ApplicationDependencyInjection();
 
@@ -15,17 +19,15 @@ builder.Services.InfrastructureDependencyInjection(builder.Configuration);
 
 builder.InfrastructureDependencyInjectionBuilder(builder.Configuration);
 
-builder.Services.ApiDependencyInjection(builder.Configuration);
-
 var app = builder.Build();
+
+app.UseRouting();
 
 app.InfrastructureDependencyInjectionApp();
 
 app.UseHttpsRedirection();
 
 app.ApiDependencyApp();
-
-app.UseRouting();
 
 app.UseAuthentication();
 

@@ -13,7 +13,6 @@ namespace ReminderApp.Application.Features.Commands.User.LoginUser
         private readonly IHashService _hashService;
         private readonly IUserService _userService;
         private readonly IConfiguration _configuration;
-
         public LoginUserCommandHandler(IUnitOfWork unitOfWork, IJwtTokenService jwtTokenService, IHashService hashService, IUserService userService, IConfiguration configuration)
         {
             _unitOfWork = unitOfWork;

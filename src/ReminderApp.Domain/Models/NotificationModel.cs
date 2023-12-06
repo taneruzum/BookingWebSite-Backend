@@ -7,6 +7,7 @@
     }
     public class NotificationAllModel
     {
+        public string[] Emails { get; set; }
         public string Message { get; set; }
     }
 

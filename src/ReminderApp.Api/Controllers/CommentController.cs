@@ -1,5 +1,4 @@
-﻿using Azure;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ReminderApp.Application.Dtos.Comment;
@@ -21,30 +20,23 @@ namespace ReminderApp.Api.Controllers
             _mediatr = mediatr;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("Add-Comment")]
         [Authorize]
         public async Task<IActionResult> AddComment([FromBody] AddCommentDto addCommentDto)
         {
-            //AddCommentCommand addCommentCommand = new(addCommentDto);
-            //bool response = await _mediatr.Send(addCommentCommand);
-            //return response is true ? Ok(response) : BadRequest(response);
-            return Ok();
+            AddCommentCommand addCommentCommand = new(addCommentDto);
+            bool response = await _mediatr.Send(addCommentCommand);
+            return response is true ? Ok(response) : BadRequest(response);
         }
 
         [HttpGet]
         [Route("Get-All-Comment")]
         public async Task<IActionResult> GetAllComment()
         {
-            //GetAllCommentQuery getAllComment = new();
-            //List<AllCommentDto>? allCommentDto = await _mediatr.Send(getAllComment);
-            //if (allCommentDto is not null && allCommentDto.Count > 0)
-            //{
-            //    List<byte[]> imageBytesList = allCommentDto.Select(dto => dto.Image).ToList();
-            //    var imageFiles = new List<FileContentResult>();
-            //}
-            //return NotFound();
-            return Ok();
+            GetAllCommentQuery getAllComment = new();
+            List<AllCommentDto>? allCommentDto = await _mediatr.Send(getAllComment);
+            return allCommentDto is not null && allCommentDto.Count() > 0 ? Ok(allCommentDto) : NotFound(null);
         }
     }
 }

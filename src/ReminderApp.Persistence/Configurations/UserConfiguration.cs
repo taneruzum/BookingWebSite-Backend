@@ -18,8 +18,6 @@ namespace ReminderApp.Persistence.Configurations
 
             builder.HasKey(u => u.Id);
 
-            builder.Property(u => u.Fullname).HasMaxLength(100).IsRequired();
-
             builder.Property(u => u.Email).HasMaxLength(200).IsRequired()
                 .HasAnnotation("RegularExpression", "[email_regex]");
 

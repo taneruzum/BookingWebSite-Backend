@@ -20,14 +20,13 @@ namespace ReminderApp.Application.Features.Queries.Comment.GetAllComment
 
         public async Task<List<AllCommentDto>> Handle(GetAllCommentQuery request, CancellationToken cancellationToken)
         {
-
             List<Domain.Entities.Comment>? comments = await _unitOfWork.GetReadRepository<Domain.Entities.Comment>().GetAllAsync();
             foreach (var comment in comments)
             {
                 var user = await _unitOfWork.GetReadRepository<Domain.Entities.User>().GetAsync(u => u.Id == comment.UserId);
                 var userImage = await _unitOfWork.GetReadRepository<Domain.Entities.ImageUser>().GetAsync(iu => iu.UserId == user.Id);
                 var image = await _imageService.GetImageAsync(userImage.ImageId);
-                allComments.Add(new() { Image = image.Photo, Star = comment.Star, UserComment = comment.UserComment, UserName = user.Email.EmailShort() });
+                allComments.Add(new() { Star = comment.Star, UserComment = comment.UserComment, UserName = user.Email.EmailShort() });
             }
             return allComments;
         }

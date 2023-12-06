@@ -28,7 +28,7 @@ namespace ReminderApp.Application.Features.Commands.User.CreateUser
             bool resultAny = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.User>().AnyAsync(u => u.Email == request.createUserDto.Email);
 
             if (resultAny)
-                throw new UserAlreadyExistsException(request.createUserDto.Fullname);
+                throw new UserAlreadyExistsException(request.createUserDto.Email);
 
             var user = _mapper.Map<ReminderApp.Domain.Entities.User>(request.createUserDto);
 

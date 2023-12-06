@@ -11,9 +11,9 @@ namespace ReminderApp.Infrastructure.Registrations
     {
         public static IServiceCollection ServiceRegistration(this IServiceCollection services)
         {
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
             services.AddScoped<ICookieService, CookieService>();
+
+            services.AddSingleton<IMailService, MailService>();
 
             services.AddSingleton<INotificationQueueService, NotificationQueueService>();
 

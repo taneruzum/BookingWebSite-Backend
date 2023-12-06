@@ -29,7 +29,7 @@ namespace Test.Api
         {
             using (var httpClient = new HttpClient())
             {
-                CreateUserDto createUserDto = new() { Email = "test@gmail.com", Fullname = "test", Password = "test123" };
+                CreateUserDto createUserDto = new() { Email = "test@gmail.com", Password = "test123" };
                 string jsonData = System.Text.Json.JsonSerializer.Serialize(createUserDto);
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 

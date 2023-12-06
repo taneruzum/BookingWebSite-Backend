@@ -6,7 +6,6 @@ namespace ReminderApp.Domain.Entities
     [Table("Users")]
     public class User : BaseModel
     {
-        public string Fullname { get; set; } = "_-NONE-_";
         public string Email { get; set; }
         public string Password { get; set; }
 
