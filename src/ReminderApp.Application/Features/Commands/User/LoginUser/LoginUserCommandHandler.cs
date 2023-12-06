@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using ReminderApp.Application.Abstractions;
 using ReminderApp.Application.Abstractions.Services;
@@ -13,13 +14,15 @@ namespace ReminderApp.Application.Features.Commands.User.LoginUser
         private readonly IHashService _hashService;
         private readonly IUserService _userService;
         private readonly IConfiguration _configuration;
-        public LoginUserCommandHandler(IUnitOfWork unitOfWork, IJwtTokenService jwtTokenService, IHashService hashService, IUserService userService, IConfiguration configuration)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public LoginUserCommandHandler(IUnitOfWork unitOfWork, IJwtTokenService jwtTokenService, IHashService hashService, IUserService userService, IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
         {
             _unitOfWork = unitOfWork;
             _jwtTokenService = jwtTokenService;
             _hashService = hashService;
             _userService = userService;
             _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<(bool isSuccess, string token)> Handle(LoginUserCommand request, CancellationToken cancellationToken)
@@ -36,6 +39,8 @@ namespace ReminderApp.Application.Features.Commands.User.LoginUser
             var token = _jwtTokenService.GenerateToken(user);
 
             await _userService.UpdateRefreshTokenAsync(token.RefreshToken, user, token.Expiration, int.Parse(_configuration["JwtSettings:ExpireMinuteRefToken"]));
+
+            _httpContextAccessor.HttpContext.Session.SetString("Email", user.Email);
 
             return (dbResult, token.AccessToken);
         }

@@ -6,7 +6,10 @@
         {
             services.AddDistributedMemoryCache();
 
-            services.AddSession();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(300);
+            });
 
             return services;
         }

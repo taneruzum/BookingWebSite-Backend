@@ -8,7 +8,7 @@ namespace ReminderApp.Api
         {
             services.HealthCheckRegistration();
 
-            //services.SessionRegistration();
+            services.SessionRegistration();
 
             services.ControllerRegistration();
 
@@ -23,7 +23,7 @@ namespace ReminderApp.Api
         {
             app.CorsRegistrationApp();
 
-            //app.SessionRegistrationApp();
+            app.SessionRegistrationApp();
 
             app.SwaggerRegistrationApp();
 

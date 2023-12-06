@@ -3,7 +3,6 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using ReminderApp.Application.Abstractions;
 using ReminderApp.Application.Abstractions.Services;
-using System.Text;
 
 namespace ReminderApp.Application.Features.Commands.Comment.AddComment
 {
@@ -11,19 +10,20 @@ namespace ReminderApp.Application.Features.Commands.Comment.AddComment
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ICookieService _cookieService;
-        public AddCommentCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, ICookieService cookieService)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public AddCommentCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
-            _cookieService = cookieService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<bool> Handle(AddCommentCommand request, CancellationToken cancellationToken)
         {
             ReminderApp.Domain.Entities.Comment comment = new() { Star = request.AddCommentDto.Star, UserComment = request.AddCommentDto.UserComment, Id = Guid.NewGuid(), CreatedDate = DateTime.Now, isActive = true };
 
-            string? email = _cookieService.GetCookieValue("Email");
+            string? email = _httpContextAccessor.HttpContext.Session.GetString("Email");
 
             if (email is not null)
             {

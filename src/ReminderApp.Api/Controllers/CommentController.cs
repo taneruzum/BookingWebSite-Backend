@@ -5,9 +5,7 @@ using ReminderApp.Application.Dtos.Comment;
 using ReminderApp.Application.Features.Commands.Comment.AddComment;
 using ReminderApp.Application.Features.Queries.Comment.GetAllComment;
 using ReminderApp.Application.Features.Queries.Comment.GetAllCommentForUser;
-using ReminderApp.Domain.Entities;
 using ReminderApp.Infrastructure.Attributes;
-using System.Collections.Generic;
 
 namespace ReminderApp.Api.Controllers
 {

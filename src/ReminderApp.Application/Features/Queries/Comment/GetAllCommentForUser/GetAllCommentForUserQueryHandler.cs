@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using ReminderApp.Application.Abstractions;
 using ReminderApp.Application.Abstractions.Services;
 using ReminderApp.Application.Dtos.Comment;
@@ -11,20 +12,20 @@ namespace ReminderApp.Application.Features.Queries.Comment.GetAllCommentForUser
         private readonly IUnitOfWork _unitOfWork;
         private List<AllCommentDto> allComments;
         private readonly IImageService _imageService;
-        private readonly ICookieService _cookieService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         List<AllCommentDto> allCommentDtos;
-        public GetAllCommentForUserQueryHandler(IUnitOfWork unitOfWork, IImageService imageService, ICookieService cookieService)
+        public GetAllCommentForUserQueryHandler(IUnitOfWork unitOfWork, IImageService imageService, IHttpContextAccessor httpContextAccessor)
         {
             _unitOfWork = unitOfWork;
             allComments = new();
             _imageService = imageService;
-            _cookieService = cookieService;
             allCommentDtos = new();
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<List<AllCommentDto>> Handle(GetAllCommentForUserQuery request, CancellationToken cancellationToken)
         {
-            string? email = _cookieService.GetCookieValue("Email");
+            string? email = _httpContextAccessor.HttpContext.Session.GetString("Email");
 
             ReminderApp.Domain.Entities.User? user = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.User>().GetAsync(u => u.Email == email);
 

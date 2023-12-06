@@ -25,6 +25,18 @@ namespace ReminderApp.Infrastructure.Services
 
         public void DeleteCoolie(string key) => _httpResponse.Cookies.Append(key, string.Empty, DeleteOptions());
 
+        public void UpdateCookieValue(string key, string newValue)
+        {
+            string existingValue = _httpRequest.Cookies[key];
+            if (existingValue != null)
+            {
+                DeleteCoolie(key);
+                AddCookieValue(key, newValue);
+            }
+            else
+                AddCookieValue(key, newValue);
+        }
+
         private CookieOptions CreateOptions()
             => new CookieOptions()
             {
