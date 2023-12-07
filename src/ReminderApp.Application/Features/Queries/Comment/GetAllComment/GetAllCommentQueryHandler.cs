@@ -22,7 +22,7 @@ namespace ReminderApp.Application.Features.Queries.Comment.GetAllComment
             foreach (var comment in comments)
             {
                 var test = comment.User.Email.EmailShort();
-                allCommentDtos.Add(new() { Star = comment.Star, UserComment = comment.UserComment, UserName = comment.User.Email.EmailShort() ?? string.Empty });
+                allCommentDtos.Add(new() { Star = comment.Star, UserComment = comment.UserComment, UserName = comment.User.Email.EmailShort() ?? string.Empty, CreatedDate = comment.CreatedDate });
             }
             return allCommentDtos;
         }
