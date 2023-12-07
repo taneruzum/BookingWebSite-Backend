@@ -47,6 +47,7 @@ namespace ReminderApp.Application.Features.Commands.Comment.AddComment
                     }
 
                     existComment.UserComment = request.AddCommentDto.UserComment;
+                    existComment.Star = request.AddCommentDto.Star;
                     return _unitOfWork.GetWriteRepository<ReminderApp.Domain.Entities.Comment>().UpdateAsync(existComment) ? await _unitOfWork.SaveChangesAsync() > 0 : false;
                 }
             }
