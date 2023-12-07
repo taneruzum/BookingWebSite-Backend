@@ -15,7 +15,8 @@ namespace ReminderApp.Application.Features.Commands.User.LoginUser
         private readonly IUserService _userService;
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public LoginUserCommandHandler(IUnitOfWork unitOfWork, IJwtTokenService jwtTokenService, IHashService hashService, IUserService userService, IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
+        private readonly ICookieService _cookieService;
+        public LoginUserCommandHandler(IUnitOfWork unitOfWork, IJwtTokenService jwtTokenService, IHashService hashService, IUserService userService, IConfiguration configuration, IHttpContextAccessor httpContextAccessor, ICookieService cookieService)
         {
             _unitOfWork = unitOfWork;
             _jwtTokenService = jwtTokenService;
@@ -23,6 +24,7 @@ namespace ReminderApp.Application.Features.Commands.User.LoginUser
             _userService = userService;
             _configuration = configuration;
             _httpContextAccessor = httpContextAccessor;
+            _cookieService = cookieService;
         }
 
         public async Task<(bool isSuccess, string token)> Handle(LoginUserCommand request, CancellationToken cancellationToken)
@@ -40,7 +42,9 @@ namespace ReminderApp.Application.Features.Commands.User.LoginUser
 
             await _userService.UpdateRefreshTokenAsync(token.RefreshToken, user, token.Expiration, int.Parse(_configuration["JwtSettings:ExpireMinuteRefToken"]));
 
-            _httpContextAccessor.HttpContext.Session.SetString(ReminderApp.Domain.Constats.TableProperty.Email, user.Email);
+            //_httpContextAccessor.HttpContext.Session.SetString("email", user.Email);
+
+            _cookieService.AddCookieValue("email", user.Email);
 
             return (dbResult, token.AccessToken);
         }

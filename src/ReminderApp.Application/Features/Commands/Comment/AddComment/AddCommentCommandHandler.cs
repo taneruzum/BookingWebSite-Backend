@@ -11,19 +11,21 @@ namespace ReminderApp.Application.Features.Commands.Comment.AddComment
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IHttpContextAccessor _httpContextAccessor;
-
-        public AddCommentCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor)
+        private readonly IJwtTokenService _jwtTokenService;
+        public AddCommentCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor, IJwtTokenService jwtTokenService)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _httpContextAccessor = httpContextAccessor;
+            _jwtTokenService = jwtTokenService;
         }
 
         public async Task<bool> Handle(AddCommentCommand request, CancellationToken cancellationToken)
         {
             ReminderApp.Domain.Entities.Comment comment = new() { Star = request.AddCommentDto.Star, UserComment = request.AddCommentDto.UserComment, Id = Guid.NewGuid(), CreatedDate = DateTime.Now, isActive = true };
 
-            string? email = _httpContextAccessor.HttpContext.Session.GetString(ReminderApp.Domain.Constats.TableProperty.Email);
+            var userExists = await _jwtTokenService.GetUserWithTokenAsync(_jwtTokenService.GetTokenInHeader());
+            string email = userExists.Email;
 
             if (email is not null)
             {

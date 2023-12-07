@@ -12,7 +12,7 @@ namespace ReminderApp.Application.Validations.User
                 .WithMessage("Email has max length 100 character")
                 .NotNull().NotEmpty()
                 .WithMessage("Email not null")
-                .Must(Email => IsValidEmail(Email))
+                //.Must(Email => IsValidEmail(Email))
                 .WithMessage("Enter a valid email format");
 
             RuleFor(u => u.Password).MaximumLength(200)
