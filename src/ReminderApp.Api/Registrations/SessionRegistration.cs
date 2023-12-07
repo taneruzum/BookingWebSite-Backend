@@ -6,12 +6,11 @@
         {
             services.AddDistributedMemoryCache();
 
-            //services.AddSession(options =>
-            //{
-            //    options.IdleTimeout = TimeSpan.FromMinutes(300);
-            //});
-
-            services.AddSession();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(300);
+                options.Cookie.IsEssential = true;
+            });
 
             return services;
         }
