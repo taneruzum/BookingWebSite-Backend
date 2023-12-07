@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
 using ReminderApp.Application.Abstractions.Services;
+using ReminderApp.Domain.Constats;
 using Serilog;
 
 namespace ReminderApp.Infrastructure.Attributes
@@ -21,7 +23,7 @@ namespace ReminderApp.Infrastructure.Attributes
 
                 var user = await jwtService.GetUserWithTokenAsync(token);
 
-                //context.HttpContext.Session.SetString(TableProperty.Email, user.Email);
+                context.HttpContext.Session.SetString(TableProperty.Email, user.Email);
 
                 Log.Information($"by {user.Email} came the request !");
             }

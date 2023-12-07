@@ -30,7 +30,7 @@ namespace ReminderApp.Infrastructure.Middlewares
         private Task HandleExceptionAsync(HttpContext context, Exception ex)
         {
             Log.Error("ERROR MESSAGE : " + ex.Message);
-            
+
             var code = HttpStatusCode.InternalServerError;
             var result = (new { error = "Error appeared when maked process ! => " + ex.Message }).SerialJson();
             context.Response.ContentType = "application/json";

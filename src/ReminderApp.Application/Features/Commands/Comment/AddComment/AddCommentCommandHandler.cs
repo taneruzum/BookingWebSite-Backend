@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using ReminderApp.Application.Abstractions;
 using ReminderApp.Application.Abstractions.Services;
+using ReminderApp.Domain.Constats;
 using ReminderApp.Domain.Entities;
 
 namespace ReminderApp.Application.Features.Commands.Comment.AddComment
@@ -24,9 +25,12 @@ namespace ReminderApp.Application.Features.Commands.Comment.AddComment
         public async Task<bool> Handle(AddCommentCommand request, CancellationToken cancellationToken)
         {
             string? email = _httpContextAccessor.HttpContext.Session.GetString(ReminderApp.Domain.Constats.TableProperty.Email);
-            
-            var tokenUser = await _jwtTokenService.GetUserWithTokenAsync(_jwtTokenService.GetTokenInHeader());
-            email = tokenUser.Email;
+
+            if (email is null)
+            {
+                var tokenUser = await _jwtTokenService.GetUserWithTokenAsync(_jwtTokenService.GetTokenInHeader());
+                email = tokenUser.Email;
+            }
 
             if (email is not null)
             {
