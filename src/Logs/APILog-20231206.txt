@@ -1,4 +1,0 @@
-2023-12-06 20:36:52.345 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 286.5159 ms
-2023-12-06 20:36:52.752 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 190.7154 ms
-2023-12-06 20:36:56.677 +03:00 [INF] Not authorization person came the request !
-2023-12-06 20:36:57.819 +03:00 [INF] HTTP GET /api/User/Get-All-User responded 200 in 1253.5896 ms
