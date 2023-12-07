@@ -74,7 +74,7 @@ namespace ReminderApp.Persistence.Services
             var tokenHandler = new JwtSecurityTokenHandler();
             var readToken = tokenHandler.ReadJwtToken(token);
 
-            var emailClaim = readToken.Claims.FirstOrDefault(claim => claim.Type == TableProperty.email);
+            var emailClaim = readToken.Claims.FirstOrDefault(claim => claim.Type == "email");
 
             if (emailClaim != null)
                 return await _unitOfWork.GetReadRepository<User>().GetAsync(u => u.Email == emailClaim.Value);

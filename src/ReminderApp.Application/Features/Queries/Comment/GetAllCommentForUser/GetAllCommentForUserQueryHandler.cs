@@ -25,7 +25,7 @@ namespace ReminderApp.Application.Features.Queries.Comment.GetAllCommentForUser
 
         public async Task<List<AllCommentDto>> Handle(GetAllCommentForUserQuery request, CancellationToken cancellationToken)
         {
-            string? email = _httpContextAccessor.HttpContext.Session.GetString("Email");
+            string? email = _httpContextAccessor.HttpContext.Session.GetString(ReminderApp.Domain.Constats.TableProperty.Email);
 
             ReminderApp.Domain.Entities.User? user = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.User>().GetAsync(u => u.Email == email);
 

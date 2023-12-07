@@ -23,7 +23,7 @@ namespace ReminderApp.Application.Features.Commands.Comment.AddComment
         {
             ReminderApp.Domain.Entities.Comment comment = new() { Star = request.AddCommentDto.Star, UserComment = request.AddCommentDto.UserComment, Id = Guid.NewGuid(), CreatedDate = DateTime.Now, isActive = true };
 
-            string? email = _httpContextAccessor.HttpContext.Session.GetString("Email");
+            string? email = _httpContextAccessor.HttpContext.Session.GetString(ReminderApp.Domain.Constats.TableProperty.Email);
 
             if (email is not null)
             {

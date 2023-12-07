@@ -40,7 +40,7 @@ namespace ReminderApp.Application.Features.Commands.User.LoginUser
 
             await _userService.UpdateRefreshTokenAsync(token.RefreshToken, user, token.Expiration, int.Parse(_configuration["JwtSettings:ExpireMinuteRefToken"]));
 
-            _httpContextAccessor.HttpContext.Session.SetString("Email", user.Email);
+            _httpContextAccessor.HttpContext.Session.SetString(ReminderApp.Domain.Constats.TableProperty.Email, user.Email);
 
             return (dbResult, token.AccessToken);
         }

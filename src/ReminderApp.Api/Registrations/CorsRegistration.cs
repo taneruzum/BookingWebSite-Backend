@@ -13,7 +13,7 @@
                             .AllowAnyMethod()
                             .SetIsOriginAllowed(_ => true) 
                             .AllowCredentials();
-        });
+                    });
             });
 
             return services;

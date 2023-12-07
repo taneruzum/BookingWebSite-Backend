@@ -27,7 +27,7 @@ namespace ReminderApp.Domain.Constats
 
     public static class TableProperty
     {
-        public static string email = "email";
+        public const string Email = "Email";
     }
 
     public static class Time
