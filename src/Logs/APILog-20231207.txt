@@ -1,17 +1,30 @@
-2023-12-07 15:22:05.602 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 541.2060 ms
-2023-12-07 15:22:06.121 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 237.2659 ms
-2023-12-07 15:22:17.290 +03:00 [INF] Not authorization person came the request !
-2023-12-07 15:22:19.035 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 2090.7011 ms
-2023-12-07 15:22:35.174 +03:00 [INF] by aa@gmali.com came the request !
-2023-12-07 15:22:39.641 +03:00 [INF] HTTP POST /api/Comment/Add-Comment responded 200 in 6768.7075 ms
-2023-12-07 15:22:43.621 +03:00 [INF] by aa@gmali.com came the request !
-2023-12-07 15:22:43.845 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 268.8890 ms
-2023-12-07 15:22:45.385 +03:00 [INF] by aa@gmali.com came the request !
-2023-12-07 15:22:45.423 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 79.7900 ms
-2023-12-07 15:22:59.852 +03:00 [INF] by aa@gmali.com came the request !
-2023-12-07 15:23:00.151 +03:00 [ERR] HTTP POST /api/User/Login-User responded 500 in 331.0296 ms
-ReminderApp.Application.Exceptions.User.UserNotExistsException: User 'kadir@gmali.com' not exists !
-   at ReminderApp.Application.Features.Commands.User.LoginUser.LoginUserCommandHandler.Handle(LoginUserCommand request, CancellationToken cancellationToken) in C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\Features\Commands\User\LoginUser\LoginUserCommandHandler.cs:line 35
+2023-12-07 17:17:30.719 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 540.2793 ms
+2023-12-07 17:17:31.290 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 333.7472 ms
+2023-12-07 17:17:38.139 +03:00 [INF] HTTP OPTIONS /api/User/Login-User responded 204 in 13.3372 ms
+2023-12-07 17:17:38.531 +03:00 [INF] Not authorization person came the request !
+2023-12-07 17:17:40.234 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 2074.3528 ms
+2023-12-07 17:22:45.284 +03:00 [INF] Not authorization person came the request !
+2023-12-07 17:22:45.813 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 570.2215 ms
+2023-12-07 17:23:11.267 +03:00 [INF] HTTP OPTIONS /api/User/Login-User responded 204 in 5.2755 ms
+2023-12-07 17:23:11.331 +03:00 [INF] Not authorization person came the request !
+2023-12-07 17:23:11.428 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 136.6258 ms
+2023-12-07 17:23:16.915 +03:00 [INF] Not authorization person came the request !
+2023-12-07 17:23:16.958 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 65.0113 ms
+2023-12-07 17:23:34.034 +03:00 [INF] HTTP OPTIONS /api/Comment/Add-Comment responded 204 in 3.3156 ms
+2023-12-07 17:23:36.785 +03:00 [INF] by kadir@gmail.com came the request !
+2023-12-07 17:24:17.895 +03:00 [INF] HTTP POST /api/Comment/Add-Comment responded 200 in 43841.2654 ms
+2023-12-07 17:24:21.579 +03:00 [INF] Not authorization person came the request !
+2023-12-07 17:24:21.647 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 82.5869 ms
+2023-12-07 17:24:37.443 +03:00 [INF] HTTP OPTIONS /api/Comment/Add-Comment responded 204 in 4.3715 ms
+2023-12-07 17:24:37.487 +03:00 [INF] by kadir@gmail.com came the request !
+2023-12-07 17:24:58.987 +03:00 [INF] HTTP POST /api/Comment/Add-Comment responded 200 in 21525.9617 ms
+2023-12-07 17:25:03.653 +03:00 [INF] Not authorization person came the request !
+2023-12-07 17:25:03.712 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 92.1306 ms
+2023-12-07 17:25:31.255 +03:00 [INF] HTTP OPTIONS /api/User/Login-User responded 204 in 3.5962 ms
+2023-12-07 17:25:31.307 +03:00 [INF] Not authorization person came the request !
+2023-12-07 17:25:31.650 +03:00 [ERR] HTTP POST /api/User/Login-User responded 500 in 367.6856 ms
+ReminderApp.Application.Exceptions.User.UserNotExistsException: User 'farukk@gmail.com' not exists !
+   at ReminderApp.Application.Features.Commands.User.LoginUser.LoginUserCommandHandler.Handle(LoginUserCommand request, CancellationToken cancellationToken) in C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\Features\Commands\User\LoginUser\LoginUserCommandHandler.cs:line 37
    at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
    at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
    at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
@@ -36,20 +49,19 @@ ReminderApp.Application.Exceptions.User.UserNotExistsException: User 'kadir@gmal
    at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
    at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
-2023-12-07 15:23:04.534 +03:00 [ERR] ERROR MESSAGE : User 'kadir@gmali.com' not exists !
-2023-12-07 15:23:12.080 +03:00 [INF] by aa@gmali.com came the request !
-2023-12-07 15:23:12.165 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 139.3878 ms
-2023-12-07 15:23:14.085 +03:00 [INF] by aa@gmali.com came the request !
-2023-12-07 15:23:14.157 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 92.7435 ms
-2023-12-07 15:23:14.739 +03:00 [INF] by aa@gmali.com came the request !
-2023-12-07 15:23:14.784 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 85.9650 ms
-2023-12-07 15:23:15.327 +03:00 [INF] by aa@gmali.com came the request !
-2023-12-07 15:23:15.390 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 83.0876 ms
-2023-12-07 15:23:41.445 +03:00 [INF] by kadir@gmail.com came the request !
-2023-12-07 15:23:45.314 +03:00 [INF] HTTP POST /api/Comment/Add-Comment responded 200 in 7093.4939 ms
-2023-12-07 15:23:57.179 +03:00 [INF] by kadir@gmail.com came the request !
-2023-12-07 15:23:57.223 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 61.7768 ms
-2023-12-07 15:24:04.377 +03:00 [INF] by kadir@gmail.com came the request !
-2023-12-07 15:24:07.076 +03:00 [INF] HTTP POST /api/Comment/Add-Comment responded 200 in 5327.5687 ms
-2023-12-07 15:24:11.578 +03:00 [INF] by kadir@gmail.com came the request !
-2023-12-07 15:24:11.610 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 54.6993 ms
+2023-12-07 17:25:36.889 +03:00 [ERR] ERROR MESSAGE : User 'farukk@gmail.com' not exists !
+2023-12-07 17:25:45.172 +03:00 [INF] HTTP OPTIONS /api/User/Login-User responded 204 in 12.7850 ms
+2023-12-07 17:25:45.213 +03:00 [INF] Not authorization person came the request !
+2023-12-07 17:25:45.281 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 89.9326 ms
+2023-12-07 17:25:52.180 +03:00 [INF] Not authorization person came the request !
+2023-12-07 17:25:52.221 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 60.1656 ms
+2023-12-07 17:26:13.361 +03:00 [INF] HTTP OPTIONS /api/Comment/Add-Comment responded 204 in 4.2745 ms
+2023-12-07 17:26:13.410 +03:00 [INF] by osman@gmail.com came the request !
+2023-12-07 17:26:45.587 +03:00 [INF] HTTP POST /api/Comment/Add-Comment responded 200 in 32205.9698 ms
+2023-12-07 17:26:49.379 +03:00 [INF] Not authorization person came the request !
+2023-12-07 17:26:49.452 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 92.7461 ms
+2023-12-07 17:27:14.487 +03:00 [INF] HTTP OPTIONS /api/Comment/Add-Comment responded 204 in 4.2897 ms
+2023-12-07 17:27:16.956 +03:00 [INF] by osman@gmail.com came the request !
+2023-12-07 17:27:27.822 +03:00 [INF] HTTP POST /api/Comment/Add-Comment responded 200 in 13306.8394 ms
+2023-12-07 17:27:31.125 +03:00 [INF] Not authorization person came the request !
+2023-12-07 17:27:31.185 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 76.9660 ms
