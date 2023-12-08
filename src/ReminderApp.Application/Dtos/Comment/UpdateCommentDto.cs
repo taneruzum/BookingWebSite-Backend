@@ -1,6 +1,6 @@
 ﻿namespace ReminderApp.Application.Dtos.Comment
 {
-    public class AddCommentDto
+    public class UpdateCommentDto
     {
         public string Email { get; set; }
         public string Comment { get; set; }

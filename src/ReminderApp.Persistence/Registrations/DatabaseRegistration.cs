@@ -17,7 +17,7 @@ namespace ReminderApp.Persistence.Registrations
                     sqlOptions.MigrationsAssembly(AssemblyReference.Assembly.GetName().Name);
                     sqlOptions.EnableRetryOnFailure(maxRetryCount: 15, maxRetryDelay: System.TimeSpan.FromSeconds(30), null);
                 });
-            });
+            }, ServiceLifetime.Singleton);
 
             var optionsBuilder = new DbContextOptionsBuilder<ReminderDbContext>().UseSqlServer(configuration["DatabaseConnection:DbUrl"]);
 
