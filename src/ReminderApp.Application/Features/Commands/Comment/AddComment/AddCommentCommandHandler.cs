@@ -31,7 +31,7 @@ namespace ReminderApp.Application.Features.Commands.Comment.AddComment
                 var tokenUser = await _jwtTokenService.GetUserWithTokenAsync(_jwtTokenService.GetTokenInHeader());
                 email = tokenUser.Email;
             }
-             
+
             if (email is not null)
             {
                 ReminderApp.Domain.Entities.User? user = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.User>().GetAsync(u => u.Email == email);
