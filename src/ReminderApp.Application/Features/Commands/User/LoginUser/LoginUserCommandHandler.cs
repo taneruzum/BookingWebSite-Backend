@@ -7,7 +7,7 @@ using ReminderApp.Application.Exceptions.User;
 
 namespace ReminderApp.Application.Features.Commands.User.LoginUser
 {
-    public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, (bool isSuccess, string token)>
+    public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, (bool isSuccess, string token, Guid userId)>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IJwtTokenService _jwtTokenService;
@@ -25,7 +25,7 @@ namespace ReminderApp.Application.Features.Commands.User.LoginUser
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<(bool isSuccess, string token)> Handle(LoginUserCommand request, CancellationToken cancellationToken)
+        public async Task<(bool isSuccess, string token, Guid userId)> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
             request.loginUserDto.Password = _hashService.StringHashingEncrypt(request.loginUserDto.Password);
 
@@ -40,7 +40,7 @@ namespace ReminderApp.Application.Features.Commands.User.LoginUser
 
             await _userService.UpdateRefreshTokenAsync(token.RefreshToken, user, token.Expiration, int.Parse(_configuration["JwtSettings:ExpireMinuteRefToken"]));
 
-            return (dbResult, token.AccessToken);
+            return (dbResult, token.AccessToken, user.Id);
         }
     }
 }

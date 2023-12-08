@@ -49,7 +49,7 @@ namespace ReminderApp.Api.Controllers
         {
             LoginUserCommand loginUserCommand = new(loginUserDto = loginUserDto);
             var response = await _mediatr.Send(loginUserCommand);
-            LoginResponse loginResponse = new() { IsSuccess = response.isSuccess, Token = response.token };
+            LoginResponse loginResponse = new() { IsSuccess = response.isSuccess, Token = response.token, UserId = response.userId };
             return response.isSuccess is true ? Ok(loginResponse) : BadRequest(loginResponse);
         }
 

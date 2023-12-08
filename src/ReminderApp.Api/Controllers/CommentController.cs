@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ReminderApp.Application.Dtos.Comment;
-using ReminderApp.Application.Features.Commands.Comment.AddComment;
 using ReminderApp.Application.Features.Commands.Comment.CreateComment;
+using ReminderApp.Application.Features.Commands.Comment.DeleteComment;
 using ReminderApp.Application.Features.Commands.Comment.UpdateComment;
 using ReminderApp.Application.Features.Queries.Comment.GetAllComment;
 using ReminderApp.Application.Features.Queries.Comment.GetAllCommentForUser;
@@ -12,6 +12,7 @@ using ReminderApp.Infrastructure.Attributes;
 namespace ReminderApp.Api.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     [UserRequestAttributeFilter]
     public class CommentController : ControllerBase
@@ -25,7 +26,6 @@ namespace ReminderApp.Api.Controllers
 
         [HttpPost]
         [Route("Create-Comment")]
-        [Authorize]
         public async Task<IActionResult> CreateComment([FromBody] AddCommentDto addCommentDto)
         {
             CreateCommentCommand createComment = new(addCommentDto.Email, addCommentDto.Comment, addCommentDto.Star);
@@ -33,9 +33,17 @@ namespace ReminderApp.Api.Controllers
             return result is true ? Ok(result) : BadRequest(false);
         }
 
-        [HttpPost]
+        [HttpDelete]
+        [Route("Delete-Comment")]
+        public async Task<IActionResult> DeleteComment([FromHeader] string email)
+        {
+            DeleteCommentCommand deleteComment = new(email);
+            bool response = await _mediatr.Send(deleteComment);
+            return response is true ? Ok(true) : BadRequest(false);
+        }
+
+        [HttpPut]
         [Route("Update-Comment")]
-        [Authorize]
         public async Task<IActionResult> UpdateComment([FromBody] UpdateCommentDto updateCommentDto)
         {
             UpdateCommentCommand updateComment = new(updateCommentDto.Email, updateCommentDto.Comment, updateCommentDto.Star);
@@ -54,6 +62,7 @@ namespace ReminderApp.Api.Controllers
 
         [HttpGet]
         [Route("Get-All-Comment")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllComment()
         {
             GetAllCommentQuery getAllComment = new();
