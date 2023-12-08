@@ -30,6 +30,7 @@ namespace ReminderApp.Api.Controllers
         {
             CreateCommentCommand createComment = new(addCommentDto.Email, addCommentDto.Comment, addCommentDto.Star);
             bool result = await _mediatr.Send(createComment);
+            Console.WriteLine("");
             return result is true ? Ok(result) : BadRequest(false);
         }
 
