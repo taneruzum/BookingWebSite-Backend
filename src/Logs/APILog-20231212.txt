@@ -1,12 +1,14 @@
-2023-12-12 15:40:26.397 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 502.5295 ms
-2023-12-12 15:40:26.879 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 272.7647 ms
-2023-12-12 15:40:38.277 +03:00 [INF] Not authorization person came the request !
-2023-12-12 15:40:39.831 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 3754.6791 ms
-2023-12-12 15:41:02.327 +03:00 [INF] by gokan@gmail.com came the request !
-2023-12-12 15:41:02.721 +03:00 [INF] HTTP POST /api/Comment/Create-Comment responded 200 in 742.6451 ms
-2023-12-12 15:41:05.175 +03:00 [INF] by gokan@gmail.com came the request !
-2023-12-12 15:41:05.449 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 340.4856 ms
-2023-12-12 15:41:12.593 +03:00 [INF] by gokan@gmail.com came the request !
-2023-12-12 15:41:12.721 +03:00 [INF] HTTP DELETE /api/Comment/Delete-Comment responded 200 in 170.8145 ms
-2023-12-12 15:41:14.361 +03:00 [INF] by gokan@gmail.com came the request !
-2023-12-12 15:41:14.395 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 64.8952 ms
+2023-12-12 21:11:08.651 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 567.5463 ms
+2023-12-12 21:11:09.096 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 208.3883 ms
+2023-12-12 21:11:27.875 +03:00 [INF] Not authorization person came the request !
+2023-12-12 21:11:29.227 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 3175.4489 ms
+2023-12-12 21:11:43.686 +03:00 [INF] by kadir@gmail.com came the request !
+2023-12-12 21:11:43.867 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 413.8490 ms
+2023-12-12 21:12:02.927 +03:00 [INF] by kadir@gmail.com came the request !
+2023-12-12 21:12:03.269 +03:00 [INF] HTTP POST /api/Comment/Create-Comment responded 200 in 420.9914 ms
+2023-12-12 21:12:05.449 +03:00 [INF] by kadir@gmail.com came the request !
+2023-12-12 21:12:05.475 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 40.9596 ms
+2023-12-12 21:12:10.665 +03:00 [INF] by kadir@gmail.com came the request !
+2023-12-12 21:12:10.784 +03:00 [INF] HTTP DELETE /api/Comment/Delete-Comment responded 200 in 164.1862 ms
+2023-12-12 21:12:12.309 +03:00 [INF] by kadir@gmail.com came the request !
+2023-12-12 21:12:12.345 +03:00 [INF] HTTP GET /api/Comment/Get-All-Comment responded 200 in 63.4525 ms

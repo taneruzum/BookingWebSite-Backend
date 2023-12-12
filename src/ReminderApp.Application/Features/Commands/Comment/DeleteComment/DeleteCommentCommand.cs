@@ -3,6 +3,6 @@
 namespace ReminderApp.Application.Features.Commands.Comment.DeleteComment
 {
     public record DeleteCommentCommand(
-        string email
+        string UserId
     ) : IRequest<bool>;
 }

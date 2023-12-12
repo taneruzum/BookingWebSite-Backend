@@ -24,20 +24,6 @@ namespace ReminderApp.Api.Controllers
             _mediatr = mediatr;
         }
 
-        /* 
-        i
-        o
-        o
-        o
-        o
-        o
-        o
-        o
-        i
-        i
-        i
-         */
-
         [HttpPost]
         [Route("Create-Comment")]
         public async Task<IActionResult> CreateComment([FromBody] AddCommentDto addCommentDto)
@@ -50,9 +36,9 @@ namespace ReminderApp.Api.Controllers
 
         [HttpDelete]
         [Route("Delete-Comment")]
-        public async Task<IActionResult> DeleteComment([FromHeader] string email)
+        public async Task<IActionResult> DeleteComment([FromHeader] string userId)
         {
-            DeleteCommentCommand deleteComment = new(email);
+            DeleteCommentCommand deleteComment = new(userId);
             bool response = await _mediatr.Send(deleteComment);
             return response is true ? Ok(true) : BadRequest(false);
         }
