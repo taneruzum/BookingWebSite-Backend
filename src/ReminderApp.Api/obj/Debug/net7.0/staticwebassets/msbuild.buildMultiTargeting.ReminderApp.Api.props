@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\ReminderApp.Api.props" />
-</Project>
