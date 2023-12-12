@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "UUibpm9poK+PoAaiA1zKwsgFyS0DII2hKUchW0fC6i4=",
+  "Source": "ReminderApp.Api",
+  "BasePath": "_content/ReminderApp.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
