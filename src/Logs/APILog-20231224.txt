@@ -1,4 +1,3 @@
-2023-12-24 22:32:22.461 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 788.2558 ms
-2023-12-24 22:32:23.238 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 248.2563 ms
-2023-12-24 22:33:00.408 +03:00 [INF] Not authorization person came the request !
-2023-12-24 22:33:03.507 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 3676.1033 ms
+2023-12-24 22:41:30.798 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 552.9844 ms
+2023-12-24 22:41:31.391 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 248.4039 ms
+2023-12-24 22:43:02.736 +03:00 [INF] HTTP POST /api/Meeting/Create-Meeting responded 200 in 11039.8116 ms
