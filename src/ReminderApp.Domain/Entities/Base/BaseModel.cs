@@ -8,10 +8,8 @@ namespace ReminderApp.Domain.Entities.Base
         public bool isActive { get; set; }
         public DateTime CreatedDate { get; set; }
 
-
         protected List<IDomainEvent> _domainEvents = new();
         public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents?.AsReadOnly();
-
 
         public BaseModel()
         {

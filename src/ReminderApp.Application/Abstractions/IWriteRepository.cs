@@ -9,5 +9,7 @@ namespace ReminderApp.Application.Abstractions
         public Task<bool> DeleteAsync(T entityId);
         public Task<bool> DeleteByIdAsync(Guid id);
         public bool UpdateAsync(T entity);
+
+        public bool AllDelete();
     }
 }

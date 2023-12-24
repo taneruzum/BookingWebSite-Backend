@@ -19,9 +19,7 @@ namespace ReminderApp.Persistence.Configurations
 
             builder.HasKey(m => m.Id);
 
-            builder.Property(m => m.PersonEmail);
-
-            builder.Property(m => m.PersonSeeType).HasDefaultValue(PersonSeeType.Unknown);
+            builder.Property(m => m.Email);
 
             builder.HasOne(mi => mi.Meeting)
                .WithMany(m => m.MeetingItems)

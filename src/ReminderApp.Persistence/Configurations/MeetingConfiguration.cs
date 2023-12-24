@@ -28,12 +28,13 @@ namespace ReminderApp.Persistence.Configurations
 
             builder.Property(m => m.Email);
 
-            builder.Property(m => m.Subject);
+            builder.Property(m => m.MeetingName);
+            
+            builder.Property(m => m.UserName);
 
             builder.HasMany(m => m.MeetingItems)
                 .WithOne(mi => mi.Meeting)
                 .HasForeignKey(mi => mi.MeetingId);
-
 
             builder.Property(m => m.CreatedDate).HasDefaultValue(Time.GetNowGet);
 

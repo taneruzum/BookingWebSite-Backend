@@ -7,22 +7,24 @@ namespace ReminderApp.Domain.Entities
     public class Meeting : BaseModel
     {
         [NotMapped]
-        private DateTime NowDate;
+        private DateTime _now;
 
-        public int Year { get; }
-        public int Month { get; }
-        public int Day { get; set; }
+        public string Year { get; }
+        public string Month { get; }
+        public string Day { get; set; }
         public string Hours { get; set; }
-        public string Subject { get; set; }
+        public string UserName { get; set; }
         public string Email { get; set; }
+        public string MeetingName { get; set; }
 
         public List<MeetingItem> MeetingItems { get; set; }
 
+
         public Meeting()
         {
-            NowDate = DateTime.Now;
-            Year = NowDate.Year;
-            Month = NowDate.Month;
+            _now = DateTime.Now;
+            Year = _now.Year.ToString();
+            Month = _now.Month.ToString();
         }
     }
 }

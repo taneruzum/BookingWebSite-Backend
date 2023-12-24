@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ReminderApp.Application.Dtos.Comment;
 using ReminderApp.Application.Features.Commands.Comment.CreateComment;
+using ReminderApp.Application.Features.Commands.Comment.DeleteAllComment;
 using ReminderApp.Application.Features.Commands.Comment.DeleteComment;
 using ReminderApp.Application.Features.Commands.Comment.UpdateComment;
 using ReminderApp.Application.Features.Queries.Comment.GetAllComment;
@@ -69,6 +70,15 @@ namespace ReminderApp.Api.Controllers
             GetAllCommentQuery getAllComment = new();
             List<AllCommentDto>? comments = await _mediatr.Send(getAllComment);
             return comments is not null ? Ok(comments) : NotFound(null);
+        }
+
+        [HttpDelete]
+        [Route("Delete-All-Comment")]
+        public async Task<IActionResult> DeleteAllComment()
+        {
+            DeleteAllCommentCommand deleteAllComment = new();
+            bool result = await _mediatr.Send(deleteAllComment);
+            return result is true ? Ok(result) : BadRequest(false);
         }
     }
 }

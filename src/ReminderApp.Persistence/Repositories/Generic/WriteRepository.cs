@@ -17,6 +17,19 @@ namespace ReminderApp.Persistence.Repositories.Generic
 
         private DbSet<T> _table => _context.Set<T>();
 
+        public bool AllDelete()
+        {
+            try
+            {
+                _table.RemoveRange(_table.ToList());
+                return true;
+            }
+            catch (System.Exception)
+            {
+                return false;
+            }
+        }
+
         public async Task<bool> CreateAsync(T entity)
         {
             try
