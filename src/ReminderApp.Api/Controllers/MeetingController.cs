@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using ReminderApp.Application.Abstractions.Services;
 using ReminderApp.Application.Dtos.Meeting;
 using ReminderApp.Application.Features.Commands.Meeting.CreateMeeting;
+using ReminderApp.Application.Features.Commands.Meeting.DisactiveMeeting;
 using ReminderApp.Application.Features.Queries.Meeting.GetAllMeetings;
 using ReminderApp.Application.Features.Queries.Meeting.GetMeeting;
 
@@ -32,12 +33,21 @@ namespace ReminderApp.Api.Controllers
         }
 
         [HttpGet]
-        [Route("Get-Meeting")]
+        [Route("Get-Active-Meeting")]
         public async Task<IActionResult> GetMeeting()
         {
             GetMeetingQuery getMeetingQuery = new(_jwtTokenService.GetTokenInHeader());
             var response = await _mediatr.Send(getMeetingQuery);
             return response is not null ? Ok(response) : NotFound();
+        }
+
+        [HttpPut]
+        [Route("Disactive-Meeting-Update")]
+        public async Task<IActionResult> DisactiveMeeting([FromHeader]Guid meetingId)
+        {
+            DisactiveMeetingCommand disactiveMeetingCommand = new(meetingId);
+            bool result = await _mediatr.Send(disactiveMeetingCommand);
+            return result is true ? Ok(true) : BadRequest(false);
         }
 
         [HttpGet]
