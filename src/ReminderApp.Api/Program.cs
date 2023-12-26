@@ -1,7 +1,7 @@
-using ReminderApp.Application;
-using ReminderApp.Persistence;
-using ReminderApp.Infrastructure;
 using ReminderApp.Api;
+using ReminderApp.Application;
+using ReminderApp.Infrastructure;
+using ReminderApp.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +24,8 @@ var app = builder.Build();
 app.UseRouting();
 
 app.InfrastructureDependencyInjectionApp();
+
+app.PersistenceInjectionApp();
 
 app.UseHttpsRedirection();
 
