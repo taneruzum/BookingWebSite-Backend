@@ -1,0 +1,4 @@
+2023-12-30 22:39:22.747 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 466.0785 ms
+2023-12-30 22:39:23.168 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 223.5969 ms
+2023-12-30 22:39:44.200 +03:00 [INF] HTTP POST /api/Meeting/Create-Meeting responded 200 in 1580.1366 ms
+2023-12-30 22:39:48.184 +03:00 [INF] HTTP GET /api/Meeting/Get-All-Meetings responded 200 in 364.7567 ms

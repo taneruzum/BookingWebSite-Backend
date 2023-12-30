@@ -11,13 +11,13 @@ namespace ReminderApp.Domain.Entities
 
         public string Year { get; }
         public string Month { get; }
-        public string Day { get; set; }
-        public string Hours { get; set; }
-        public string UserName { get; set; }
         public string Email { get; set; }
         public string MeetingName { get; set; }
+        public string UserName { get; set; }
+        public int Hours { get; set; }
 
         public List<MeetingItem> MeetingItems { get; set; }
+        public List<MeetingDetail> MeetingDetails { get; set; }
 
 
         public Meeting()

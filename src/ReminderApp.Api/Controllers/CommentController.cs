@@ -26,7 +26,7 @@ namespace ReminderApp.Api.Controllers
         }
 
         [HttpPost]
-        [Route("Create-Comment")]
+        [Route("Create-Comment")]   
         public async Task<IActionResult> CreateComment([FromBody] AddCommentDto addCommentDto)
         {
             CreateCommentCommand createComment = new(addCommentDto.Email, addCommentDto.Comment, addCommentDto.Star);

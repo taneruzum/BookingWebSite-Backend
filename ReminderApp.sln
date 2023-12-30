@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logs", "Logs", "{3838CB7B-3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B9B663CB-C386-46E3-92A1-F5C0D96D71FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Api", "src\Tests\Test.Api\Test.Api.csproj", "{1C61BA4C-F8AA-4F49-AC77-7F34C3460005}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Api", "src\Tests\Test.Api\Test.Api.csproj", "{1C61BA4C-F8AA-4F49-AC77-7F34C3460005}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

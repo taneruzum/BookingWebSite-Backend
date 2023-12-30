@@ -18,8 +18,6 @@ namespace ReminderApp.Persistence.Configurations
 
             builder.HasKey(m => m.Id);
 
-            builder.Property(m => m.Day);
-
             builder.Property(m => m.Hours);
 
             builder.Property(m => m.Year);
@@ -29,12 +27,17 @@ namespace ReminderApp.Persistence.Configurations
             builder.Property(m => m.Email);
 
             builder.Property(m => m.MeetingName);
-            
+
             builder.Property(m => m.UserName);
 
             builder.HasMany(m => m.MeetingItems)
                 .WithOne(mi => mi.Meeting)
                 .HasForeignKey(mi => mi.MeetingId);
+
+            builder.HasMany(m => m.MeetingDetails)
+                    .WithOne(md => md.Meeting)
+                    .HasForeignKey(md => md.MeetingId)
+                    .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(m => m.CreatedDate).HasDefaultValue(Time.GetNowGet);
 

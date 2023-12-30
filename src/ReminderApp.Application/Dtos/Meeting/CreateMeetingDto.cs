@@ -2,12 +2,12 @@
 {
     public class CreateMeetingDto
     {
-        public string? Year { get; set; } = DateTime.Now.Year.ToString();
-        public string? Month { get; set; } = DateTime.Now.Month.ToString();
-        public string Day { get; set; }
-        public string Hours { get; set; }
+        public string Year { get; } = DateTime.Now.Year.ToString();
+        public string Month { get; } = DateTime.Now.Month.ToString();
         public string MeetingName { get; set; }
-        
+        public int Hours { get; set; }
+
+        public List<MeetingDetailDto> MeetingDetailDtos { get; set; }
         public List<string> Emails { get; set; }
     }
 }
