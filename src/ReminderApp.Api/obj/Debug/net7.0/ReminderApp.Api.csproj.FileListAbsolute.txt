@@ -101,3 +101,4 @@ C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Api\obj\Debu
 C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Api\bin\Debug\net7.0\Serilog.Enrichers.CorrelationId.dll
 C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Api\bin\Debug\net7.0\Serilog.Exceptions.dll
 C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Api\bin\Debug\net7.0\Serilog.Sinks.Async.dll
+C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Api\obj\Debug\net7.0\ReminderApp.Api.sourcelink.json
