@@ -15,6 +15,7 @@ namespace ReminderApp.Domain.Entities
         public string MeetingName { get; set; }
         public string UserName { get; set; }
         public int Hours { get; set; }
+        public int Minute { get; set; }
 
         public List<MeetingItem> MeetingItems { get; set; }
         public List<MeetingDetail> MeetingDetails { get; set; }

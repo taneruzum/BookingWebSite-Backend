@@ -31,7 +31,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 30, 22, 6, 7, 716, DateTimeKind.Local).AddTicks(1361));
+                        .HasDefaultValue(new DateTime(2023, 12, 31, 12, 36, 19, 114, DateTimeKind.Local).AddTicks(5905));
 
                     b.Property<int>("Star")
                         .HasColumnType("int");
@@ -72,7 +72,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 30, 22, 6, 7, 716, DateTimeKind.Local).AddTicks(1361));
+                        .HasDefaultValue(new DateTime(2023, 12, 31, 12, 36, 19, 114, DateTimeKind.Local).AddTicks(5905));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -101,7 +101,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 30, 22, 6, 7, 716, DateTimeKind.Local).AddTicks(1361));
+                        .HasDefaultValue(new DateTime(2023, 12, 31, 12, 36, 19, 114, DateTimeKind.Local).AddTicks(5905));
 
                     b.Property<int>("FileType")
                         .HasColumnType("int");
@@ -164,7 +164,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 30, 22, 6, 7, 716, DateTimeKind.Local).AddTicks(1361));
+                        .HasDefaultValue(new DateTime(2023, 12, 31, 12, 36, 19, 114, DateTimeKind.Local).AddTicks(5905));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -176,6 +176,9 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<string>("MeetingName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Minute")
+                        .HasColumnType("int");
 
                     b.Property<string>("Month")
                         .IsRequired()
@@ -208,7 +211,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 30, 22, 6, 7, 716, DateTimeKind.Local).AddTicks(1361));
+                        .HasDefaultValue(new DateTime(2023, 12, 31, 12, 36, 19, 114, DateTimeKind.Local).AddTicks(5905));
 
                     b.Property<string>("MeetingFinish")
                         .IsRequired()
@@ -246,7 +249,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 30, 22, 6, 7, 716, DateTimeKind.Local).AddTicks(1361));
+                        .HasDefaultValue(new DateTime(2023, 12, 31, 12, 36, 19, 114, DateTimeKind.Local).AddTicks(5905));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -276,7 +279,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 30, 22, 6, 7, 716, DateTimeKind.Local).AddTicks(1361));
+                        .HasDefaultValue(new DateTime(2023, 12, 31, 12, 36, 19, 114, DateTimeKind.Local).AddTicks(5905));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -310,7 +313,7 @@ namespace ReminderApp.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 12, 30, 22, 6, 7, 716, DateTimeKind.Local).AddTicks(1361));
+                        .HasDefaultValue(new DateTime(2023, 12, 31, 12, 36, 19, 114, DateTimeKind.Local).AddTicks(5905));
 
                     b.Property<string>("Email")
                         .IsRequired()

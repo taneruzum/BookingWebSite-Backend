@@ -25,6 +25,10 @@ namespace ReminderApp.Persistence.Configurations
             builder.Property(m => m.Month);
 
             builder.Property(m => m.Email);
+            
+            builder.Property(m => m.Hours);
+
+            builder.Property(m => m.Minute);
 
             builder.Property(m => m.MeetingName);
 
