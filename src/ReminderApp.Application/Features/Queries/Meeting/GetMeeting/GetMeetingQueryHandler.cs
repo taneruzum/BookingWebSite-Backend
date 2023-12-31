@@ -24,7 +24,7 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetMeeting
         {
             var user = await _jwtTokenService.GetUserWithTokenAsync(request.token);
 
-            var meetings = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.Meeting>().GetAllAsync(m => m.Email == user.Email && m.isActive == true, true, m => m.MeetingItems);
+            var meetings = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.Meeting>().GetAllAsync(m => m.Email == user.Email && m.isActive == true, true, m => m.MeetingItems, m => m.MeetingDetails);
 
             foreach (var meeting in meetings)
             {
@@ -32,6 +32,9 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetMeeting
 
                 foreach (var meetingItem in meeting.MeetingItems)
                     getAllMeetingDto.GetAllMeetingItemDto.Add(_mapper.Map<GetAllMeetingItemDto>(meetingItem));
+
+                foreach (var meetingDetail in meeting.MeetingDetails)
+                    getAllMeetingDto.GetAllMeetingDetailDtos.Add(_mapper.Map<GetAllMeetingDetailDto>(meetingDetail));
 
                 getAllMeetingDtos.Add(getAllMeetingDto);
             }

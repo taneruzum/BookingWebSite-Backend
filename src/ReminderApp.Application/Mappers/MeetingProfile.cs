@@ -12,6 +12,7 @@ namespace ReminderApp.Application.Mappers
             CreateMap<ReminderApp.Domain.Entities.MeetingItem,GetAllMeetingItemDto>().ReverseMap();
             CreateMap<ReminderApp.Domain.Entities.Meeting, GetAllMeetingDto>().ReverseMap();
             CreateMap<ReminderApp.Domain.Entities.Meeting, GetAllMeetingDto>().ReverseMap();
+            CreateMap<ReminderApp.Domain.Entities.MeetingDetail, GetAllMeetingDetailDto>().ReverseMap();
         }
     }
 }
