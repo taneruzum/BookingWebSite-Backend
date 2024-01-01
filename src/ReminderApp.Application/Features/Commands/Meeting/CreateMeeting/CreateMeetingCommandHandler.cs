@@ -3,7 +3,9 @@ using MediatR;
 using ReminderApp.Application.Abstractions;
 using ReminderApp.Application.Abstractions.Services;
 using ReminderApp.Application.Extensions;
+using ReminderApp.Domain.Constats;
 using ReminderApp.Domain.Entities;
+using ReminderApp.Domain.Entities.Events;
 
 namespace ReminderApp.Application.Features.Commands.Meeting.CreateMeeting
 {
@@ -47,9 +49,17 @@ namespace ReminderApp.Application.Features.Commands.Meeting.CreateMeeting
             }
 
             if (dbResult is true && dbResults.All(res => res == true))
-                //meeting.AddDomainEvent(new SendEmailEvent(request.CreateMeetingDto.Emails.ToArray())); // GONNA TEST THIS PLACE !!!
+            {
+                //---------------------// GONNA TEST THIS PLACE \\--------------------------------\\
+                meeting.AddDomainEvent(new SendEmailEvent(GetUrlFormat(Message.meetingCreateMessage, meeting.Id.ToString()), Message.meetingCreateSubject, Message.meetingCreateDisplayName, request.CreateMeetingDto.Emails.ToArray()));
                 return await _unitOfWork.SaveChangesAsync() > 0;
+            }
             return false;
+        }
+
+        private string GetUrlFormat(string str, string id)
+        {
+            return $"{str}/{ClientPageUrls.Dashboard}/{id}";
         }
     }
 }

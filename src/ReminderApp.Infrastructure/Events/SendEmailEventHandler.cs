@@ -15,7 +15,7 @@ namespace ReminderApp.Infrastructure.Events
 
         public async Task Handle(SendEmailEvent notification, CancellationToken cancellationToken)
         {
-            _notificationQueueService.QueueAll.Enqueue(new() { Message = "created an invitation for a meeting" ,Emails = notification.emails});
+            _notificationQueueService.QueueAll.Enqueue(new() { Message = notification.message, DisplayName = notification.displayName, Subject = notification.subhect, Emails = notification.emails });
         }
     }
 }

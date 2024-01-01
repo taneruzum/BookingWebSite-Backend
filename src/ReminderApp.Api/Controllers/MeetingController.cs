@@ -7,6 +7,8 @@ using ReminderApp.Application.Features.Commands.Meeting.CreateMeeting;
 using ReminderApp.Application.Features.Commands.Meeting.DisactiveMeeting;
 using ReminderApp.Application.Features.Queries.Meeting.GetAllMeetings;
 using ReminderApp.Application.Features.Queries.Meeting.GetMeeting;
+using ReminderApp.Application.Features.Queries.Meeting.GetMeetingNotification;
+using ReminderApp.Domain.Entities;
 
 namespace ReminderApp.Api.Controllers
 {
@@ -57,6 +59,15 @@ namespace ReminderApp.Api.Controllers
             GetAllMeetingsQuery getAllMeetingsQuery = new();
             List<GetAllMeetingDto> meetings = await _mediatr.Send(getAllMeetingsQuery);
             return meetings is not null && meetings.Count() > 0 ? Ok(meetings) : NotFound();
+        }
+
+        [HttpGet]
+        [Route("Get-Personality-Meeting-Notification")]
+        public async Task<IActionResult> GetPersonalityMeetingNotification()
+        {
+            GetPersonalityMeetingNotificationQuery getPersonalityMeetingNotification = new();
+            List<AllPersonalNotificationDto> allPersonalNotifications = await _mediatr.Send(getPersonalityMeetingNotification);
+            return allPersonalNotifications is not null && allPersonalNotifications.Count() > 0 ? Ok(allPersonalNotifications) : NotFound();
         }
     }
 }

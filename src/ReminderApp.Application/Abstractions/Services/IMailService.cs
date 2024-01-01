@@ -2,8 +2,8 @@
 {
     public interface IMailService
     {
-        Task SendMessageAsync(string to, string subject, string body, bool isBodyHtml = true);
-        Task SendMessageAsync(string[] tos, string subject, string body, bool isBodyHtml = true);
-        Task SendMessageWithImageAsync(string[] tos, string subject, string body, bool isBodyHtml, string imagePath);
+        Task SendMessageAsync(string to, string subject, string body, bool isBodyHtml = true, string displayName = "");
+        Task SendMessageAsync(string[] tos, string subject, string body, bool isBodyHtml = true, string displayName = "");
+        Task SendMessageWithImageAsync(string[] tos, string subject, string body, bool isBodyHtml, string imagePath, string displayName = "");
     }
 }

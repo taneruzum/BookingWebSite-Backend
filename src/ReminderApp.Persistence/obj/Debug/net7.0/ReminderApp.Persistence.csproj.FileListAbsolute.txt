@@ -17,4 +17,3 @@ C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Persistence\
 C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Persistence\obj\Debug\net7.0\ReminderApp.Persistence.pdb
 C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Persistence\obj\Debug\net7.0\ReminderApp.Persistence.genruntimeconfig.cache
 C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Persistence\obj\Debug\net7.0\ref\ReminderApp.Persistence.dll
-C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Persistence\obj\Debug\net7.0\ReminderApp.Persistence.sourcelink.json

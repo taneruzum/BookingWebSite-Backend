@@ -10,4 +10,3 @@ C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Domain\obj\D
 C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Domain\obj\Debug\net7.0\refint\ReminderApp.Domain.dll
 C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Domain\obj\Debug\net7.0\ReminderApp.Domain.pdb
 C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Domain\obj\Debug\net7.0\ref\ReminderApp.Domain.dll
-C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Domain\obj\Debug\net7.0\ReminderApp.Domain.sourcelink.json

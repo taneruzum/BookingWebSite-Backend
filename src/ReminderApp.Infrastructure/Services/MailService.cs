@@ -14,12 +14,12 @@ namespace ReminderApp.Infrastructure.Services
             _configuration = configuration;
         }
 
-        public async Task SendMessageAsync(string to, string subject, string body, bool isBodyHtml)
+        public async Task SendMessageAsync(string to, string subject, string body, bool isBodyHtml, string displayName = "")
         {
-            await SendMessageAsync(new[] { to }, subject, body, isBodyHtml);
+            await SendMessageAsync(new[] { to }, subject, body, isBodyHtml, displayName);
         }
 
-        public async Task SendMessageAsync(string[] tos, string subject, string body, bool isBodyHtml = true)
+        public async Task SendMessageAsync(string[] tos, string subject, string body, bool isBodyHtml = true, string displayName = "")
         {
             MailMessage mail = new();
             mail.IsBodyHtml = isBodyHtml;
@@ -27,7 +27,7 @@ namespace ReminderApp.Infrastructure.Services
                 mail.To.Add(to);
             mail.Subject = subject;
             mail.Body = body;
-            mail.From = new(_configuration["EmailConfiguration:Username"], "INFO UPDATE", System.Text.Encoding.UTF8);
+            mail.From = new(_configuration["EmailConfiguration:Username"], displayName ?? "", System.Text.Encoding.UTF8);
 
             SmtpClient smtp = new();
             smtp.Credentials = new NetworkCredential(_configuration["EmailConfiguration:Username"], _configuration["EmailConfiguration:Password"]);
@@ -37,7 +37,7 @@ namespace ReminderApp.Infrastructure.Services
             await smtp.SendMailAsync(mail);
         }
 
-        public async Task SendMessageWithImageAsync(string[] tos, string subject, string body, bool isBodyHtml, string imagePath)
+        public async Task SendMessageWithImageAsync(string[] tos, string subject, string body, bool isBodyHtml, string imagePath, string displayName = "")
         {
             MailMessage mail = new();
             mail.IsBodyHtml = isBodyHtml;
@@ -45,7 +45,7 @@ namespace ReminderApp.Infrastructure.Services
                 mail.To.Add(to);
             mail.Subject = subject;
             mail.Body = body;
-            mail.From = new(_configuration["EmailConfiguration:Username"], "INFO UPDATE", System.Text.Encoding.UTF8);
+            mail.From = new(_configuration["EmailConfiguration:Username"], displayName ?? "", System.Text.Encoding.UTF8);
             mail.Attachments.Add(new Attachment(imagePath));
 
             SmtpClient smtp = new();

@@ -17,4 +17,3 @@ C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Infrastructu
 C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Infrastructure\obj\Debug\net7.0\refint\ReminderApp.Infrastructure.dll
 C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Infrastructure\obj\Debug\net7.0\ReminderApp.Infrastructure.pdb
 C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Infrastructure\obj\Debug\net7.0\ref\ReminderApp.Infrastructure.dll
-C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Infrastructure\obj\Debug\net7.0\ReminderApp.Infrastructure.sourcelink.json

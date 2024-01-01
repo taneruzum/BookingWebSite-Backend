@@ -67,4 +67,17 @@ namespace ReminderApp.Domain.Constats
     {
         public const string UserRole = "User";
     }
+
+    public static class ClientPageUrls
+    {
+        public const string Dashboard = "http://localhost:5173/dashboard";
+    }
+
+    public static class Message
+    {
+        public const string meetingCreateMessage = "Meeting Created a Succesfully in HighFives and You Can Access the Page From Here \n\n";
+        public const string meetingCreateSubject = "Created Meeting For You and Sended Notification Your Friends";
+        public const string meetingCreateDisplayName = "High Fives";
+    }
+
 }

@@ -37,13 +37,13 @@ namespace ReminderApp.Infrastructure.Services.Background
 
         public async Task SendEmail(IMailService mailService, NotificationPersonModel msg)
         {
-            await mailService.SendMessageAsync(msg.Email, string.Empty, msg.Message, false);
+            await mailService.SendMessageAsync(msg.Email, msg.Subject, msg.Message, false, msg.DisplayName);
             Log.Information("Notification Send To {0}", msg.Email);
         }
 
         public async Task SendEmail(IMailService mailService, NotificationAllModel msg)
         {
-            await mailService.SendMessageAsync(msg.Emails, string.Empty, msg.Message, false);
+            await mailService.SendMessageAsync(msg.Emails, msg.Subject, msg.Message, false, msg.DisplayName);
             Log.Information("Notification Send To All");
         }
     }
