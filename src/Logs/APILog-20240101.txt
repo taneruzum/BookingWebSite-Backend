@@ -1,6 +1,0 @@
-2024-01-01 18:01:53.415 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 283.1447 ms
-2024-01-01 18:01:53.780 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 180.3795 ms
-2024-01-01 18:02:10.696 +03:00 [INF] Not authorization person came the request !
-2024-01-01 18:02:11.526 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 1021.4878 ms
-2024-01-01 18:02:22.251 +03:00 [INF] HTTP POST /api/Meeting/Create-Meeting responded 200 in 973.9840 ms
-2024-01-01 18:02:24.522 +03:00 [INF] Notification Send To All

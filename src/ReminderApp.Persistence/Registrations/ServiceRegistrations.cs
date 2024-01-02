@@ -24,6 +24,8 @@ namespace ReminderApp.Persistence.Registrations
 
             services.AddScoped<IUserService, UserService>();
 
+            services.AddScoped<IMeetingService, MeetingService>();
+
             return services;
         }
 

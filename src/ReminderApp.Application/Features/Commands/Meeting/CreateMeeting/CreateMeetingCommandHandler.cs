@@ -51,7 +51,7 @@ namespace ReminderApp.Application.Features.Commands.Meeting.CreateMeeting
             if (dbResult is true && dbResults.All(res => res == true))
             {
                 //---------------------// GONNA TEST THIS PLACE \\--------------------------------\\
-                meeting.AddDomainEvent(new SendEmailEvent(GetUrlFormat(Message.meetingCreateMessage, meeting.Id.ToString()), Message.meetingCreateSubject, Message.meetingCreateDisplayName, request.CreateMeetingDto.Emails.ToArray()));
+                //meeting.AddDomainEvent(new SendEmailEvent(GetUrlFormat(Message.meetingCreateMessage, meeting.Id.ToString()), Message.meetingCreateSubject, Message.meetingCreateDisplayName, request.CreateMeetingDto.Emails.ToArray()));
                 return await _unitOfWork.SaveChangesAsync() > 0;
             }
             return false;
