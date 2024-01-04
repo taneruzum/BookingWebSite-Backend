@@ -44,7 +44,7 @@ namespace ReminderApp.Application.Features.Commands.Meeting.CreateMeeting
             {
                 foreach (var meetingDetailDto in request.CreateMeetingDto.MeetingDetailDtos)
                 {
-                    dbResults.Add(await _unitOfWork.GetWriteRepository<MeetingDetail>().CreateAsync(new() { MeetingFinish = meetingDetailDto.MeetingsFinish, MeetingsDay = meetingDetailDto.MeetingsDay, MeetingStart = meetingDetailDto.MeetingsStart, MeetingId = meeting.Id }));
+                    dbResults.Add(await _unitOfWork.GetWriteRepository<MeetingDetail>().CreateAsync(new() { MeetingFinish = GetMeetingFinishValue(request.CreateMeetingDto.Hours, request.CreateMeetingDto.Minute, meetingDetailDto.MeetingsStart), MeetingsDay = meetingDetailDto.MeetingsDay, MeetingStart = meetingDetailDto.MeetingsStart, MeetingId = meeting.Id ,VoteCount = 0}));
                 }
             }
 
@@ -60,6 +60,15 @@ namespace ReminderApp.Application.Features.Commands.Meeting.CreateMeeting
         private string GetUrlFormat(string str, string id)
         {
             return $"{str}/{ClientPageUrls.Dashboard}/{id}";
+        }
+
+        private string GetMeetingFinishValue(int hour, int minute, string meetingstart)
+        {
+            TimeSpan meetingStartTime = TimeSpan.Parse(meetingstart);
+
+            TimeSpan combinedTime = meetingStartTime.Add(new TimeSpan(hour, minute, 0));
+
+            return $"{combinedTime.Hours:D2}:{combinedTime.Minutes:D2}";
         }
     }
 }

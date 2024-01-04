@@ -4,6 +4,5 @@
     {
         public string MeetingsDay { get; set; }
         public string MeetingsStart { get; set; }
-        public string MeetingsFinish { get; set; }
     }
 }

@@ -24,6 +24,8 @@ namespace ReminderApp.Persistence.Configurations
 
             builder.Property(m => m.MeetingsDay);
 
+            builder.Property(m => m.VoteCount);
+
             builder.HasOne(md => md.Meeting)
                      .WithMany(m => m.MeetingDetails)
                      .HasForeignKey(md => md.MeetingId)

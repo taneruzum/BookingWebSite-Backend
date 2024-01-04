@@ -28,6 +28,7 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetMeeting
 
             var meetings = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.Meeting>().GetAllAsync(m => m.Email == user.Email && m.isActive == true, true, m => m.MeetingItems, m => m.MeetingDetails);
 
+            #region old data
             //foreach (var meeting in meetings)
             //{
             //    GetAllMeetingDto getAllMeetingDto = _mapper.Map<GetAllMeetingDto>(meeting);
@@ -43,7 +44,7 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetMeeting
             //    var restDATATHISPLACE = await _meetingService.GetMeetingVoteCount(meeting.Id);
             //}
             //return getAllMeetingDtos;
-
+            #endregion
 
             foreach (var meeting in meetings)
             {
@@ -55,20 +56,18 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetMeeting
                 foreach (var meetingDetail in meeting.MeetingDetails)
                 {
                     GetAllMeetingDetailDto newMeetingDetailDto = _mapper.Map<GetAllMeetingDetailDto>(meetingDetail);
-                    
+
                     var dicDayAndCount = await _meetingService.GetMeetingVoteCount(meeting.Id);
 
                     if (!getAllMeetingDto.GetAllMeetingDetailDtos.Any(x => x.MeetingsDay == newMeetingDetailDto.MeetingsDay))
                     {
-                        var value = dicDayAndCount[newMeetingDetailDto.MeetingsDay];
-                        newMeetingDetailDto.VoteCount = value;
+                        newMeetingDetailDto.VoteCount = meetingDetail.VoteCount;
+                        newMeetingDetailDto.MeetingFinish = meetingDetail.MeetingFinish;
+                        newMeetingDetailDto.MeetingDetailId = meetingDetail.Id;
                         getAllMeetingDto.GetAllMeetingDetailDtos.Add(newMeetingDetailDto);
                     }
                 }
-
                 getAllMeetingDtos.Add(getAllMeetingDto);
-
-
             }
             return getAllMeetingDtos;
         }

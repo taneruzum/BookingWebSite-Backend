@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ReminderApp.Application.Abstractions.Services;
 using ReminderApp.Application.Dtos.Meeting;
+using ReminderApp.Application.Features.Commands.Meeting.AddVoteForMeeting;
 using ReminderApp.Application.Features.Commands.Meeting.CreateMeeting;
 using ReminderApp.Application.Features.Commands.Meeting.DisactiveMeeting;
 using ReminderApp.Application.Features.Queries.Meeting.GetAllMeetings;
@@ -71,18 +72,11 @@ namespace ReminderApp.Api.Controllers
 
         [HttpPost]
         [Route("Add-Vote-For-Meeting")]
-        public async Task<IActionResult> AddVoteForMeeting()
+        public async Task<IActionResult> AddVoteForMeeting([FromBody] VoteForMeetingDto voteForMeetingDto)
         {
-
-            return Ok();
-        }
-
-        [HttpGet]
-        [Route("Get-Meeting-Vote-Values")]
-        public async Task<IActionResult> GetMeetingVoteValues()
-        {
-
-            return Ok();
+            AddVoteForMeetingCommand addVoteForMeetingCommand = new(voteForMeetingDto);
+            bool response = await _mediatr.Send(addVoteForMeetingCommand);
+            return response is true ? Ok(true) : BadRequest(false);
         }
     }
 }
