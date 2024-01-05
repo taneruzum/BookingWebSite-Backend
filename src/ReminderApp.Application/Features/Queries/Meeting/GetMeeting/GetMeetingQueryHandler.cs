@@ -28,7 +28,7 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetMeeting
 
             var meetings = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.Meeting>().GetAllAsync(m => m.Email == user.Email && m.isActive == true, true, m => m.MeetingItems, m => m.MeetingDetails);
 
-            #region old data
+            #region old code
             //foreach (var meeting in meetings)
             //{
             //    GetAllMeetingDto getAllMeetingDto = _mapper.Map<GetAllMeetingDto>(meeting);
@@ -37,11 +37,20 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetMeeting
             //        getAllMeetingDto.GetAllMeetingItemDto.Add(_mapper.Map<GetAllMeetingItemDto>(meetingItem));
 
             //    foreach (var meetingDetail in meeting.MeetingDetails)
-            //        getAllMeetingDto.GetAllMeetingDetailDtos.Add(_mapper.Map<GetAllMeetingDetailDto>(meetingDetail));
+            //    {
+            //        GetAllMeetingDetailDto newMeetingDetailDto = _mapper.Map<GetAllMeetingDetailDto>(meetingDetail);
 
+            //        var dicDayAndCount = await _meetingService.GetMeetingVoteCount(meeting.Id);
+
+            //        if (!getAllMeetingDto.GetAllMeetingDetailDtos.Any(x => x.MeetingsDay == newMeetingDetailDto.MeetingsDay))
+            //        {
+            //            newMeetingDetailDto.VoteCount = meetingDetail.VoteCount;
+            //            newMeetingDetailDto.MeetingFinish = meetingDetail.MeetingFinish;
+            //            newMeetingDetailDto.MeetingDetailId = meetingDetail.Id;
+            //            getAllMeetingDto.GetAllMeetingDetailDtos.Add(newMeetingDetailDto);
+            //        }
+            //    }
             //    getAllMeetingDtos.Add(getAllMeetingDto);
-
-            //    var restDATATHISPLACE = await _meetingService.GetMeetingVoteCount(meeting.Id);
             //}
             //return getAllMeetingDtos;
             #endregion
@@ -59,7 +68,7 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetMeeting
 
                     var dicDayAndCount = await _meetingService.GetMeetingVoteCount(meeting.Id);
 
-                    if (!getAllMeetingDto.GetAllMeetingDetailDtos.Any(x => x.MeetingsDay == newMeetingDetailDto.MeetingsDay))
+                    if (!getAllMeetingDto.GetAllMeetingDetailDtos.Any(x => x.MeetingDetailId == newMeetingDetailDto.MeetingDetailId))
                     {
                         newMeetingDetailDto.VoteCount = meetingDetail.VoteCount;
                         newMeetingDetailDto.MeetingFinish = meetingDetail.MeetingFinish;

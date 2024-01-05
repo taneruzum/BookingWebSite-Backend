@@ -17,9 +17,10 @@ namespace ReminderApp.Application.Features.Commands.Meeting.AddVoteForMeeting
         {
             var meetingAndDetails = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.Meeting>().GetAsync(m => m.Id == request.VoteForMeetingDto.MeetingId, true, m => m.MeetingItems);
 
-            foreach (var meetingItem in meetingAndDetails.MeetingItems)
-                if(meetingItem.Email == request.VoteForMeetingDto.Email && meetingItem.Voted == true)
-                    return false;
+            if (!meetingAndDetails.MeetingItems.Any(meetingItem => meetingItem.Email == request.VoteForMeetingDto.Email))
+                return false;
+            if (meetingAndDetails.MeetingItems.Any(meetingItem => meetingItem.Email == request.VoteForMeetingDto.Email && meetingItem.Voted == true))
+                return false;
 
             foreach (var MeetingDetailId in request.VoteForMeetingDto.MeetingDetailIds)
             {
@@ -27,12 +28,9 @@ namespace ReminderApp.Application.Features.Commands.Meeting.AddVoteForMeeting
                 meetingDetail.VoteCount += 1;
             }
 
-            foreach (var meetingItem in meetingAndDetails.MeetingItems)
-                if (meetingItem.Email == request.VoteForMeetingDto.Email && meetingItem.Voted == false)
-                {
-                    meetingItem.Voted = true;
-                    break;
-                }
+            var selectedMeetingItem = meetingAndDetails.MeetingItems
+                .FirstOrDefault(mi => mi.Email == request.VoteForMeetingDto.Email);
+            selectedMeetingItem.Voted = true;
 
             return await _unitOfWork.SaveChangesAsync() > 0;
         }

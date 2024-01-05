@@ -1,12 +1,39 @@
-2024-01-05 19:02:50.056 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 531.9468 ms
-2024-01-05 19:02:50.808 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 440.4297 ms
-2024-01-05 19:03:07.048 +03:00 [INF] Not authorization person came the request !
-2024-01-05 19:03:08.408 +03:00 [INF] HTTP POST /api/User/Register-User responded 200 in 1655.2372 ms
-2024-01-05 19:03:16.192 +03:00 [INF] Not authorization person came the request !
-2024-01-05 19:03:16.466 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 343.7177 ms
-2024-01-05 19:04:01.185 +03:00 [INF] HTTP POST /api/Meeting/Create-Meeting responded 200 in 621.4429 ms
-2024-01-05 19:04:05.293 +03:00 [INF] HTTP GET /api/Meeting/Get-Active-Meeting responded 200 in 466.8265 ms
-2024-01-05 19:04:37.506 +03:00 [INF] HTTP POST /api/Meeting/Add-Vote-For-Meeting responded 200 in 199.7933 ms
-2024-01-05 19:04:43.357 +03:00 [INF] HTTP POST /api/Meeting/Add-Vote-For-Meeting responded 200 in 81.0865 ms
-2024-01-05 19:04:50.133 +03:00 [INF] HTTP POST /api/Meeting/Add-Vote-For-Meeting responded 200 in 146.5174 ms
-2024-01-05 19:04:53.343 +03:00 [INF] HTTP GET /api/Meeting/Get-Active-Meeting responded 200 in 107.7549 ms
+2024-01-05 22:48:52.610 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 325.2961 ms
+2024-01-05 22:48:52.975 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 186.3594 ms
+2024-01-05 22:49:06.927 +03:00 [INF] Not authorization person came the request !
+2024-01-05 22:49:07.266 +03:00 [ERR] HTTP POST /api/User/Login-User responded 500 in 513.1039 ms
+ReminderApp.Application.Exceptions.User.UserNotExistsException: User 'yildiran@gmail.com' not exists !
+   at ReminderApp.Application.Features.Commands.User.LoginUser.LoginUserCommandHandler.Handle(LoginUserCommand request, CancellationToken cancellationToken) in C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Application\Features\Commands\User\LoginUser\LoginUserCommandHandler.cs:line 35
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at ReminderApp.Api.Controllers.UserController.LoginUser(LoginUserDto loginUserDto) in C:\Users\Casper\Desktop\GitHub Projects\ReminderApp\src\ReminderApp.Api\Controllers\UserController.cs:line 51
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2024-01-05 22:49:07.349 +03:00 [ERR] ERROR MESSAGE : User 'yildiran@gmail.com' not exists !
+2024-01-05 22:49:44.958 +03:00 [INF] HTTP POST /api/Meeting/Create-Meeting responded 200 in 902.3145 ms
+2024-01-05 22:49:48.007 +03:00 [INF] HTTP GET /api/Meeting/Get-Active-Meeting responded 200 in 296.9096 ms
+2024-01-05 22:50:07.129 +03:00 [INF] HTTP POST /api/Meeting/Add-Vote-For-Meeting responded 400 in 100.2717 ms
+2024-01-05 22:50:17.799 +03:00 [INF] HTTP POST /api/Meeting/Add-Vote-For-Meeting responded 200 in 92.2226 ms
+2024-01-05 22:50:19.660 +03:00 [INF] HTTP POST /api/Meeting/Add-Vote-For-Meeting responded 400 in 41.3423 ms
+2024-01-05 22:50:22.655 +03:00 [INF] HTTP GET /api/Meeting/Get-Active-Meeting responded 200 in 62.6351 ms
+2024-01-05 22:50:29.993 +03:00 [INF] HTTP POST /api/Meeting/Add-Vote-For-Meeting responded 400 in 40.6531 ms
+2024-01-05 22:50:34.906 +03:00 [INF] HTTP GET /api/Meeting/Get-Active-Meeting responded 200 in 46.5217 ms

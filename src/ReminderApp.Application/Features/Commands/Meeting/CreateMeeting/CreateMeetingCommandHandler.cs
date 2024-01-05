@@ -6,6 +6,7 @@ using ReminderApp.Application.Extensions;
 using ReminderApp.Domain.Constats;
 using ReminderApp.Domain.Entities;
 using ReminderApp.Domain.Entities.Events;
+using System.Globalization;
 
 namespace ReminderApp.Application.Features.Commands.Meeting.CreateMeeting
 {
@@ -44,6 +45,8 @@ namespace ReminderApp.Application.Features.Commands.Meeting.CreateMeeting
             {
                 foreach (var meetingDetailDto in request.CreateMeetingDto.MeetingDetailDtos)
                 {
+                    if (!IsMeetingStartValid(meetingDetailDto.MeetingsStart))
+                        return false;
                     dbResults.Add(await _unitOfWork.GetWriteRepository<MeetingDetail>().CreateAsync(new() { MeetingFinish = GetMeetingFinishValue(request.CreateMeetingDto.Hours, request.CreateMeetingDto.Minute, meetingDetailDto.MeetingsStart), MeetingsDay = meetingDetailDto.MeetingsDay, MeetingStart = meetingDetailDto.MeetingsStart, MeetingId = meeting.Id ,VoteCount = 0}));
                 }
             }
@@ -69,6 +72,24 @@ namespace ReminderApp.Application.Features.Commands.Meeting.CreateMeeting
             TimeSpan combinedTime = meetingStartTime.Add(new TimeSpan(hour, minute, 0));
 
             return $"{combinedTime.Hours:D2}:{combinedTime.Minutes:D2}";
+        }
+
+        private string GetStrDatetimeFormat(string meetingsStart,string format)
+        {
+            if (DateTime.TryParseExact(meetingsStart, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDateTime))
+            {
+                string formattedTime = parsedDateTime.ToString("HH:mm");
+                return formattedTime;
+            }
+            return string.Empty;
+        }
+
+        private bool IsMeetingStartValid(string meetingsStart)
+        {
+            if (meetingsStart.Contains(":"))
+                return true;
+            else
+                return false;
         }
     }
 }

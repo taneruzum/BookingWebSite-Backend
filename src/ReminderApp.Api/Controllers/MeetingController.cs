@@ -9,6 +9,7 @@ using ReminderApp.Application.Features.Commands.Meeting.DisactiveMeeting;
 using ReminderApp.Application.Features.Queries.Meeting.GetAllMeetings;
 using ReminderApp.Application.Features.Queries.Meeting.GetMeeting;
 using ReminderApp.Application.Features.Queries.Meeting.GetMeetingNotification;
+using ReminderApp.Application.Features.Queries.Meeting.GetSingleMeetingForUser;
 
 namespace ReminderApp.Api.Controllers
 {
@@ -78,6 +79,15 @@ namespace ReminderApp.Api.Controllers
             AddVoteForMeetingCommand addVoteForMeetingCommand = new(voteForMeetingDto);
             bool response = await _mediatr.Send(addVoteForMeetingCommand);
             return response is true ? Ok(true) : BadRequest(false);
+        }
+
+        [HttpGet]
+        [Route("Get-Single-Meeting-For-User")]
+        public async Task<IActionResult> GetSingleMeetingForUser([FromHeader]Guid meetingId)
+        {
+            GetSingleMeetingForUserQuery getSingleMeetingForUser = new(meetingId);
+            var response = await _mediatr.Send(getSingleMeetingForUser);
+            return response is not null ? Ok(response) : NotFound();
         }
     }
 }
