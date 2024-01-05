@@ -71,6 +71,7 @@ namespace ReminderApp.Api.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [Route("Add-Vote-For-Meeting")]
         public async Task<IActionResult> AddVoteForMeeting([FromBody] VoteForMeetingDto voteForMeetingDto)
         {

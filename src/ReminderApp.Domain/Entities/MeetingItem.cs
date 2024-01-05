@@ -8,6 +8,8 @@ namespace ReminderApp.Domain.Entities
     {
         public string Email { get; set; }
 
+        public bool? Voted { get; set; } = false;
+
         public Guid MeetingId { get; set; }
         public Meeting Meeting { get; set; }
     }
