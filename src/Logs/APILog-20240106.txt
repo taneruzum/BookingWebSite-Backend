@@ -1,0 +1,9 @@
+2024-01-06 11:12:30.760 +03:00 [INF] HTTP GET /swagger/index.html responded 200 in 286.0423 ms
+2024-01-06 11:12:31.091 +03:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 177.5117 ms
+2024-01-06 11:13:12.560 +03:00 [INF] Not authorization person came the request !
+2024-01-06 11:13:13.356 +03:00 [INF] HTTP POST /api/User/Login-User responded 200 in 1003.4919 ms
+2024-01-06 11:13:24.406 +03:00 [INF] HTTP GET /api/Meeting/Get-Active-Meeting responded 200 in 783.8521 ms
+2024-01-06 11:13:32.513 +03:00 [INF] HTTP GET /api/Meeting/Get-Single-Meeting-For-User responded 200 in 115.4370 ms
+2024-01-06 11:14:04.018 +03:00 [INF] HTTP POST /api/Meeting/Add-Vote-For-Meeting responded 400 in 122.7217 ms
+2024-01-06 11:14:17.006 +03:00 [INF] HTTP POST /api/Meeting/Add-Vote-For-Meeting responded 400 in 41.8865 ms
+2024-01-06 11:14:55.202 +03:00 [INF] HTTP POST /api/Meeting/Add-Vote-For-Meeting responded 400 in 60.4078 ms

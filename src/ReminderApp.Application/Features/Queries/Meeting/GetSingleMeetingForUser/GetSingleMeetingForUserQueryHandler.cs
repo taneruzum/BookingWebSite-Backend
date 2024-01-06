@@ -11,20 +11,18 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetSingleMeetingForUs
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMeetingService _meetingService;
         private readonly IMapper _mapper;
-        private GetAllMeetingDto getAllMeetingDtos;
+        private GetAllMeetingDto getAllMeetingDto;
 
         public GetSingleMeetingForUserQueryHandler(IUnitOfWork unitOfWork, IMeetingService meetingService, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _meetingService = meetingService;
-            getAllMeetingDtos = new GetAllMeetingDto();
+            getAllMeetingDto = new GetAllMeetingDto();
             _mapper = mapper;
         }
 
         public async Task<GetAllMeetingDto> Handle(GetSingleMeetingForUserQuery request, CancellationToken cancellationToken)
         {
-            //await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.Meeting>().GetAsync()
-
             var meeting = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.Meeting>().GetAsync(m => m.Id == request.meetingId && m.isActive == true, true, m => m.MeetingItems, m => m.MeetingDetails);
 
             GetAllMeetingDto getAllMeetingDto = _mapper.Map<GetAllMeetingDto>(meeting);
@@ -36,9 +34,9 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetSingleMeetingForUs
             {
                 GetAllMeetingDetailDto newMeetingDetailDto = _mapper.Map<GetAllMeetingDetailDto>(meetingDetail);
 
-                var dicDayAndCount = await _meetingService.GetMeetingVoteCount(meeting.Id);
+                //var dicDayAndCount = await _meetingService.GetMeetingVoteCount(meeting.Id);
 
-                if (!getAllMeetingDto.GetAllMeetingDetailDtos.Any(x => x.MeetingsDay == newMeetingDetailDto.MeetingsDay))
+                if (!getAllMeetingDto.GetAllMeetingDetailDtos.Any(x => x.MeetingDetailId == newMeetingDetailDto.MeetingDetailId))
                 {
                     newMeetingDetailDto.VoteCount = meetingDetail.VoteCount;
                     newMeetingDetailDto.MeetingFinish = meetingDetail.MeetingFinish;
@@ -46,9 +44,7 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetSingleMeetingForUs
                     getAllMeetingDto.GetAllMeetingDetailDtos.Add(newMeetingDetailDto);
                 }
             }
-
-            return getAllMeetingDtos;
-
+            return getAllMeetingDto;
         }
     }
 }
