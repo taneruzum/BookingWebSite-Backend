@@ -11,14 +11,16 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetSingleMeetingForUs
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMeetingService _meetingService;
         private readonly IMapper _mapper;
+        private readonly IJwtTokenService _jwtTokenService;
         private GetAllMeetingDto getAllMeetingDto;
 
-        public GetSingleMeetingForUserQueryHandler(IUnitOfWork unitOfWork, IMeetingService meetingService, IMapper mapper)
+        public GetSingleMeetingForUserQueryHandler(IUnitOfWork unitOfWork, IMeetingService meetingService, IMapper mapper, IJwtTokenService jwtTokenService)
         {
             _unitOfWork = unitOfWork;
             _meetingService = meetingService;
             getAllMeetingDto = new GetAllMeetingDto();
             _mapper = mapper;
+            _jwtTokenService = jwtTokenService;
         }
 
         public async Task<GetAllMeetingDto> Handle(GetSingleMeetingForUserQuery request, CancellationToken cancellationToken)
@@ -27,8 +29,16 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetSingleMeetingForUs
 
             GetAllMeetingDto getAllMeetingDto = _mapper.Map<GetAllMeetingDto>(meeting);
 
+            var userInfo = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.User>().GetAsync(u => u.Email == meeting.Email);
+            getAllMeetingDto.UserId = userInfo.Id;
+
+
             foreach (var meetingItem in meeting.MeetingItems)
-                getAllMeetingDto.GetAllMeetingItemDto.Add(_mapper.Map<GetAllMeetingItemDto>(meetingItem));
+            {
+                var mapData = _mapper.Map<GetAllMeetingItemDto>(meetingItem);
+                mapData.UserId = meetingItem.Id;
+                getAllMeetingDto.GetAllMeetingItemDto.Add(mapData);
+            }
 
             foreach (var meetingDetail in meeting.MeetingDetails)
             {

@@ -58,9 +58,15 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetMeeting
             foreach (var meeting in meetings)
             {
                 GetAllMeetingDto getAllMeetingDto = _mapper.Map<GetAllMeetingDto>(meeting);
+                var userWithToken = await _jwtTokenService.GetUserWithTokenAsync(request.token);
+                getAllMeetingDto.UserId = userWithToken.Id;
 
                 foreach (var meetingItem in meeting.MeetingItems)
-                    getAllMeetingDto.GetAllMeetingItemDto.Add(_mapper.Map<GetAllMeetingItemDto>(meetingItem));
+                {
+                    var mapData = _mapper.Map<GetAllMeetingItemDto>(meetingItem);
+                    mapData.UserId = meetingItem.Id;
+                    getAllMeetingDto.GetAllMeetingItemDto.Add(mapData);
+                }
 
                 foreach (var meetingDetail in meeting.MeetingDetails)
                 {

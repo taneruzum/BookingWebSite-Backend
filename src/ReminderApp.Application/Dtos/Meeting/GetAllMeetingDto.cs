@@ -9,6 +9,7 @@
         public int Minute { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
+        public Guid? UserId { get; set; } = Guid.Empty;
         public string MeetingName { get; set; }
         public DateTime CreatedDate { get; set; }
 
