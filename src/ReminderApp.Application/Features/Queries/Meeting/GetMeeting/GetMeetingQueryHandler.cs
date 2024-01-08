@@ -64,7 +64,8 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetMeeting
                 foreach (var meetingItem in meeting.MeetingItems)
                 {
                     var mapData = _mapper.Map<GetAllMeetingItemDto>(meetingItem);
-                    mapData.UserId = meetingItem.Id;
+                    var userInfo = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.User>().GetAsync(u => u.Email == meetingItem.Email);
+                    mapData.UserId = userInfo.Id;
                     getAllMeetingDto.GetAllMeetingItemDto.Add(mapData);
                 }
 
