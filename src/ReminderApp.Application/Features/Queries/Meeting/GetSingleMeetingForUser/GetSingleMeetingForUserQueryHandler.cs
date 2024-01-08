@@ -32,7 +32,6 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetSingleMeetingForUs
             var userInfo = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.User>().GetAsync(u => u.Email == meeting.Email);
             getAllMeetingDto.UserId = userInfo.Id;
 
-
             foreach (var meetingItem in meeting.MeetingItems)
             {
                 var mapData = _mapper.Map<GetAllMeetingItemDto>(meetingItem);
@@ -40,6 +39,7 @@ namespace ReminderApp.Application.Features.Queries.Meeting.GetSingleMeetingForUs
                 var userItemInfo = await _unitOfWork.GetReadRepository<ReminderApp.Domain.Entities.User>().GetAsync(u => u.Email == meetingItem.Email);
 
                 mapData.UserId = userItemInfo.Id;
+                mapData.IsVoted = meetingItem.Voted;
                 getAllMeetingDto.GetAllMeetingItemDto.Add(mapData);
             }
 
