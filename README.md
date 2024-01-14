@@ -13,7 +13,7 @@ Local sunucuya bağlanmak **istemezseniz** (SSMS'de) bağlandığınız sunucu a
 2. `ReminderApp.Persistence` klasörünün içindeki `DesignTimeContext.cs` dosyasındaki kodu da aynı şekilde değiştirmelisiniz.
 
 Daha sonra terminalde sırasıyla şu kodları yazın:
-- cd .\src|
+- cd .\src\ 
 - cd .\ReminderApp.Persistence\
 - dotnet ef migrations add exampleName
 - dotnet ef database update
@@ -41,7 +41,7 @@ If you **don't want to** connect to the local server (in SSMS) copy the server n
 2. You should also change the code in `DesignTimeContext.cs` file in `ReminderApp.Persistence` folder in the same way.
 
 Then type the following codes in the terminal:
-- cd .\src|
+- cd .\src\ 
 - cd .\ReminderApp.Persistence\
 - dotnet ef migrations add exampleName
 - dotnet ef database update
